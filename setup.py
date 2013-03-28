@@ -5,7 +5,7 @@ import os
 from setuptools import setup, find_packages
 
 setup(
-    name = 'Depot',
+    name = 'depot',
     version = '0.0.1',
     packages = find_packages(),
     author = 'Noah Kantrowitz',
