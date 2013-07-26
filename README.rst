@@ -34,7 +34,7 @@ Example
 Storage Location
 ----------------
 
-Storage locations are given as URIs like local:///srv/repo or s3://key:secret/bucket. Any scheme supported
+Storage locations are given as URIs like local:///srv/repo or s3://key:secret@bucket. Any scheme supported
 by libcloud should work, but only local and s3 have been tested so far.
 
 S3 Credetials
