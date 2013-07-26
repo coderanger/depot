@@ -1,4 +1,5 @@
-Summary::
+Depot
+=====
 
 Used to push, it is a replacement for reprepro+s3cmd sync and whatnot.
 
@@ -6,10 +7,10 @@ It does incremental updates of a repo, so you don't need to keep a full local co
 
 You just feed it each package as they are made and it updates all the various metadata files as needed.
 
-This was important since chef-server and private chef builds are like 300MB each, so keeping more than a few versions on disk on the build machines gets ugly
+Usage
+-----
 
-
-More later::
+::
 
   Usage: depot [options] <package> [<package> ...]
   
@@ -22,6 +23,16 @@ More later::
   -k KEYID --gpg-key=KEYID     GPG key ID to use for signing
   --no-sign                    do not sign this upload
   --no-public                  do not make cloud files public-readable
-  
-Example::
+
+Example
+-------
+
+::
+
   depot -s s3://apt.example.com -c precise -k 6791B14F mypackage.deb
+
+S3 Credetials
+-------------
+
+You can pass your AWS access key ID and secret access key as the username and password in the storage URI,
+or if not present depot will check the $AWS_ACCESS_KEY_ID and $AWS_SECRET_ACCESS_KEY environment variables.
