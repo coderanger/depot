@@ -31,9 +31,14 @@ Example
 
   depot -s s3://apt.example.com -c precise -k 6791B14F mypackage.deb
 
+Storage Location
+----------------
+
+Storage locations are given as URIs like local:///srv/repo or s3://key:secret/bucket. Any scheme supported
+by libcloud should work, but only local and s3 have been tested so far.
+
 S3 Credetials
 -------------
 
 You can pass your AWS access key ID and secret access key as the username and password in the storage URI,
 or if not present depot will check the $AWS_ACCESS_KEY_ID and $AWS_SECRET_ACCESS_KEY environment variables.
-The hostname is used as the S3 bucket name to write to.
