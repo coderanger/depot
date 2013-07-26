@@ -36,3 +36,4 @@ S3 Credetials
 
 You can pass your AWS access key ID and secret access key as the username and password in the storage URI,
 or if not present depot will check the $AWS_ACCESS_KEY_ID and $AWS_SECRET_ACCESS_KEY environment variables.
+The hostname is used as the S3 bucket name to write to.
