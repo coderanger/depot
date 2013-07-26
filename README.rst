@@ -1,3 +1,14 @@
+Summary::
+
+Used to push, it is a replacement for reprepro+s3cmd sync and whatnot.
+
+It does incremental updates of a repo, so you don't need to keep a full local copy of the repo anymore.
+
+You just feed it each package as they are made and it updates all the various metadata files as needed.
+
+This was important since chef-server and private chef builds are like 300MB each, so keeping more than a few versions on disk on the build machines gets ugly
+
+
 More later::
 
   Usage: depot [options] <package> [<package> ...]
