@@ -52,7 +52,7 @@ class StorageWrapper(object):
                     # Yeah so this doesn't work, scroll down to the bottom and cry
                     extra['meta_data'] = {'acl': 'public-read'}
                 # Other clouds here
-            return self.storage.upload_object_via_stream((self._update_hashes(path, buf) for buf in data), path, extra=extra)
+            return self.storage.upload_object_via_stream((self._update_hashes(path, buf, False) for buf in data), path, extra=extra)
 
     def download(self, path, skip_hash=False):
         # Assumption, this isn't a big file
