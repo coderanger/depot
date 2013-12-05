@@ -131,7 +131,7 @@ class AptRelease(AptMeta):
         now = time.gmtime()
         # The debian standard (Policy 4.4) really does specify the English labels
         day_of_week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][now.tm_wday]
-        month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][now.tm_mon]
+        month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][now.tm_mon - 1]
         self['Date'] = time.strftime('{0}, %d {1} %Y %H:%M:%S UTC'.format(day_of_week, month), now)
         return super(AptRelease, self).__str__()
 
