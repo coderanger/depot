@@ -37,7 +37,7 @@ Storage Location
 Storage locations are given as URIs like local:///srv/repo or s3://key:secret@bucket. Any scheme supported
 by libcloud should work, but only local and s3 have been tested so far.
 
-S3 Credetials
+S3 Credentials
 -------------
 
 You can pass your AWS access key ID and secret access key as the username and password in the storage URI,
