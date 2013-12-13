@@ -13,7 +13,7 @@ Usage
 ::
 
   Usage: depot [options] <package> [<package> ...]
-  
+
   -h --help                    show this help message and exit
   --version                    show program's version number and exit
   -s URI --storage=URI         URI for storage provider, checks $DEPOT_STORAGE or local://
@@ -38,7 +38,7 @@ Storage locations are given as URIs like local:///srv/repo or s3://key:secret@bu
 by libcloud should work, but only local and s3 have been tested so far.
 
 S3 Credentials
--------------
+--------------
 
 You can pass your AWS access key ID and secret access key as the username and password in the storage URI,
 or if not present depot will check the $AWS_ACCESS_KEY_ID and $AWS_SECRET_ACCESS_KEY environment variables.
