@@ -36,17 +36,18 @@ class AptMeta(collections.OrderedDict):
 
     @property
     def pool_path(self):
-        if hasattr(self, 'name'):
-            filename = self.name
-        elif 'Filename' in self:
-            filename = self['Filename']
-        else:
-            raise ValueError('No filename found for %s'%self)
-        first_letter = self['Package'][0]
-        if self['Package'].startswith('lib'):
-            first_letter = 'lib' + first_letter
-        self.pool_path = 'pool/main/{0}/{1}/{2}'.format(first_letter, self['Package'], os.path.basename(filename))
-        return self.pool_path
+        if not hasattr(self, '_pool_path'):
+            if hasattr(self, 'name'):
+                filename = self.name
+            elif 'Filename' in self:
+                filename = self['Filename']
+            else:
+                raise ValueError('No filename found for %s'%self)
+            first_letter = self['Package'][0]
+            if self['Package'].startswith('lib'):
+                first_letter = 'lib' + first_letter
+            self._pool_path = 'pool/main/{0}/{1}/{2}'.format(first_letter, self['Package'], os.path.basename(filename))
+        return self._pool_path
 
 
 class AptPackage(AptMeta):
