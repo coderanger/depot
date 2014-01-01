@@ -1,0 +1,140 @@
+Package: libecpg-compat2
+Source: postgresql-8.2
+Version: 8.2.23-1.pgdg12.4+1
+Architecture: amd64
+Maintainer: Martin Pitt <mpitt@debian.org>
+Installed-Size: 262
+Depends: libc6 (>= 2.14), libecpg5, libpgtypes2
+Homepage: http://www.postgresql.org/
+Priority: optional
+Section: 8.2/libs
+Filename: pool/8.2/p/postgresql-8.2/libecpg-compat2_8.2.23-1.pgdg12.4+1_amd64.deb
+Size: 221840
+SHA256: 355decc0b181ab936ecd0bc8f7406f5eda46ab25e0feb786d0b9e5cc996a2d39
+SHA1: 64929869d8cf77ff44b86e031d976d25ea11c90c
+MD5sum: fc748fb0f2b5440a00e3f2bd0f6c566e
+Description: older version of run-time library for ECPG programs
+ The libecpg_compat shared library is used by programs built with ecpg.
+ (Embedded PostgreSQL for C).
+ .
+ PostgreSQL is an object-relational SQL database management system.
+
+Package: libecpg-dev
+Source: postgresql-8.2
+Version: 8.2.23-1.pgdg12.4+1
+Architecture: amd64
+Maintainer: Martin Pitt <mpitt@debian.org>
+Installed-Size: 997
+Depends: libc6 (>= 2.14), libpq-dev, libecpg5 (= 8.2.23-1.pgdg12.4+1), libecpg-compat2 (= 8.2.23-1.pgdg12.4+1), libpgtypes2 (= 8.2.23-1.pgdg12.4+1)
+Conflicts: libecpg3-dev, postgresql-dev
+Homepage: http://www.postgresql.org/
+Priority: optional
+Section: 8.2/libdevel
+Filename: pool/8.2/p/postgresql-8.2/libecpg-dev_8.2.23-1.pgdg12.4+1_amd64.deb
+Size: 373378
+SHA256: 587313768b465b7a1b4586c765925edce4aed60366ba219c8c486cacb6c16021
+SHA1: a5d97b126c4f2150a7a20c62602ab34bfef020d2
+MD5sum: f18daaa3ef20be22a6ff075f73c8fb75
+Description: development files for ECPG (Embedded PostgreSQL for C)
+ This package contains the necessary files to build ECPG (Embedded
+ PostgreSQL for C) programs.  It includes the development libraries
+ and the preprocessor program ecpg.
+ .
+ PostgreSQL is an object-relational SQL database management system.
+ .
+ Install this package if you want to write C programs with SQL statements
+ embedded in them (rather than run by an external process).
+
+Package: libecpg5
+Source: postgresql-8.2
+Version: 8.2.23-1.pgdg12.4+1
+Architecture: amd64
+Maintainer: Martin Pitt <mpitt@debian.org>
+Installed-Size: 307
+Depends: libc6 (>= 2.14), libpgtypes2, libpq5
+Homepage: http://www.postgresql.org/
+Priority: optional
+Section: 8.2/libs
+Filename: pool/8.2/p/postgresql-8.2/libecpg5_8.2.23-1.pgdg12.4+1_amd64.deb
+Size: 238998
+SHA256: 4c365b3980c1a4a61e12ae89c9d27ee8172de35d861aa29923a5154598674f74
+SHA1: 8889f20d274323f3d4004fbad18ca46c1b7b397d
+MD5sum: ecf1cd43bd6f6635b414a416c2d914ca
+Description: run-time library for ECPG programs
+ The libecpg shared library is used by programs built with ECPG
+ (Embedded PostgreSQL for C).
+ .
+ PostgreSQL is an object-relational SQL database management system.
+
+Package: libpgtypes2
+Source: postgresql-8.2
+Version: 8.2.23-1.pgdg12.4+1
+Architecture: amd64
+Maintainer: Martin Pitt <mpitt@debian.org>
+Installed-Size: 307
+Depends: libc6 (>= 2.14)
+Homepage: http://www.postgresql.org/
+Priority: optional
+Section: 8.2/libs
+Filename: pool/8.2/p/postgresql-8.2/libpgtypes2_8.2.23-1.pgdg12.4+1_amd64.deb
+Size: 242224
+SHA256: bc711ca44adfc4425e69a1777c4284ac942b3f352d8296a3047895e97d82489b
+SHA1: b2bf4a58d46fad661519cb21e61255d55550824e
+MD5sum: f523c3bff2cb1e07428bca594fd4b5c4
+Description: shared library libpgtypes for PostgreSQL 8.2
+ The libpgtypes shared library is used by programs built with ecpg.
+ (Embedded PostgreSQL for C).
+ .
+ PostgreSQL is an object-relational SQL database management system.
+
+Package: libpq-dev
+Source: postgresql-8.2
+Version: 8.2.23-1.pgdg12.4+1
+Architecture: amd64
+Maintainer: Martin Pitt <mpitt@debian.org>
+Installed-Size: 1060
+Depends: libc6 (>= 2.4), libpq5 (= 8.2.23-1.pgdg12.4+1), libssl-dev, libkrb5-dev, comerr-dev
+Suggests: postgresql-doc-8.2
+Conflicts: postgresql-dev (<< 7.5)
+Replaces: postgresql-dev
+Homepage: http://www.postgresql.org/
+Priority: optional
+Section: 8.2/libdevel
+Filename: pool/8.2/p/postgresql-8.2/libpq-dev_8.2.23-1.pgdg12.4+1_amd64.deb
+Size: 356822
+SHA256: 274024ce7f26251df0db00031456d39df0d5c6a79f8eba2f593811a9ddebad70
+SHA1: 33b0b8430af65262ae9c54a2c3453f0ab434af23
+MD5sum: c0a9abe6ece40e3db6933402603c76f2
+Description: header files for libpq5 (PostgreSQL library)
+ Header files and static library for compiling C programs to link
+ with the libpq library in order to communicate with a PostgreSQL
+ database backend.
+ .
+ PostgreSQL is an object-relational SQL database management system.
+
+Package: libpq5
+Source: postgresql-8.2
+Version: 8.2.23-1.pgdg12.4+1
+Architecture: amd64
+Maintainer: Martin Pitt <mpitt@debian.org>
+Installed-Size: 781
+Depends: libc6 (>= 2.14), libcomerr2 (>= 1.01), libkrb5-3 (>= 1.6.dfsg.2), libldap-2.4-2 (>= 2.4.7), libssl1.0.0 (>= 1.0.0)
+Homepage: http://www.postgresql.org/
+Priority: optional
+Section: 8.2/libs
+Filename: pool/8.2/p/postgresql-8.2/libpq5_8.2.23-1.pgdg12.4+1_amd64.deb
+Size: 311252
+SHA256: d7bddec977b6b93c278464000f4485b35d4a27ddc6bd76c33d3ef74931578bb1
+SHA1: 5492e07c36f562e61407601b9be7b982ef483831
+MD5sum: c4b1e64f8dbc0d81147df623cb64a9e9
+Description: PostgreSQL C client library
+ libpq is a C library that enables user programs to communicate with
+ the PostgreSQL database server.  The server can be on another machine
+ and accessed through TCP/IP.  This version of libpq is compatible
+ with servers from PostgreSQL 8.2 or later.
+ .
+ This package contains the run-time library, needed by packages using
+ libpq.
+ .
+ PostgreSQL is an object-relational SQL database management system.
+

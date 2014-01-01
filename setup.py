@@ -1,8 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 import os
+import sys
 
 from setuptools import setup, find_packages
+from setuptools.command.test import test as TestCommand
+
+
+class PyTest(TestCommand):
+    def finalize_options(self):
+        TestCommand.finalize_options(self)
+        self.test_args = []
+        self.test_suite = True
+    def run_tests(self):
+        #import here, cause outside the eggs aren't loaded
+        import pytest
+        errno = pytest.main(self.test_args)
+        sys.exit(errno)
 
 setup(
     name = 'depot',
@@ -30,8 +44,8 @@ setup(
     ],
     zip_safe = False,
     install_requires = ['apache-libcloud', 'docopt', 'six', 'lockfile', 'arpy', 'python-gnupg'],
-    tests_require = ['unittest2', 'mock'],
-    test_suite = 'unittest2.collector',
+    tests_require = ['pytest', 'pretend'],
+    cmdclass = {'test': PyTest},
     entry_points = {
         'console_scripts': [
             'depot = depot:main',

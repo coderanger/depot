@@ -1,7 +1,5 @@
 import bz2
 import collections
-import email.message
-import email.parser
 import os
 import tarfile
 import time
@@ -36,6 +34,20 @@ class AptMeta(collections.OrderedDict):
     def __str__(self):
         return '\n'.join('{0}: {1}'.format(*item) for item in six.iteritems(self))
 
+    @property
+    def pool_path(self):
+        if hasattr(self, 'name'):
+            filename = self.name
+        elif 'Filename' in self:
+            filename = self['Filename']
+        else:
+            raise ValueError('No filename found for %s'%self)
+        first_letter = self['Package'][0]
+        if self['Package'].startswith('lib'):
+            first_letter = 'lib' + first_letter
+        self.pool_path = 'pool/main/{0}/{1}/{2}'.format(first_letter, self['Package'], os.path.basename(filename))
+        return self.pool_path
+
 
 class AptPackage(AptMeta):
     def __init__(self, filename, fileobj=None):
@@ -48,10 +60,6 @@ class AptPackage(AptMeta):
         self.ar.read_all_headers()
         self.control_tar = tarfile.open('control.tar.gz', 'r:gz', fileobj=self.ar.archived_files['control.tar.gz'])
         super(AptPackage, self).__init__(self.control_tar.extractfile('./control'))
-        first_letter = self['Package'][0]
-        if self['Package'].startswith('lib'):
-            first_letter = 'lib' + first_letter
-        self.pool_path = 'pool/main/{0}/{1}/{2}'.format(first_letter, self['Package'], os.path.basename(filename))
 
 
 class AptPackages(object):
@@ -61,7 +69,7 @@ class AptPackages(object):
         for buf in data.split('\n\n'):
             if not buf.strip():
                 continue
-            pkg = email.parser.Parser().parsestr(buf, True)
+            pkg = AptMeta(buf)
             self.packages[(pkg['Package'], pkg['Version'])] = pkg
 
     def add(self, pkg):
@@ -74,7 +82,7 @@ class AptPackages(object):
         self.packages[(pkg['Package'], pkg['Version'])] = pkg
 
     def __str__(self, extra_fn=None):
-        return ''.join(str(pkg) for key, pkg in sorted(six.iteritems(self.packages), key=lambda k: k[0]))
+        return '\n\n'.join(str(pkg) for key, pkg in sorted(six.iteritems(self.packages), key=lambda k: k[0]))
 
 
 class AptRelease(AptMeta):
@@ -144,8 +152,8 @@ class AptRepository(object):
         self.component = component
         self.architecture = architecture
 
-    def add_package(self, path):
-        pkg = AptPackage(path)
+    def add_package(self, path, fileobj=None):
+        pkg = AptPackage(path, fileobj)
         # Check that we have an arch if needed
         arch = pkg['Architecture']
         if pkg['Architecture'] == 'any':
@@ -154,7 +162,11 @@ class AptRepository(object):
                 raise ValueError('Architechture required when adding packages for "any"')
 
         # Stream up the actual package file
-        self.storage.upload(pkg.pool_path, open(path, 'rb'))
+        if fileobj:
+            fileobj.seek(0, 0)
+        else:
+            fileobj = open(path, 'rb')
+        self.storage.upload(pkg.pool_path, fileobj)
 
         # Update the Packages file
         packages_path = 'dists/{0}/{1}/binary-{2}/Packages'.format(self.codename, self.component, arch)
@@ -178,10 +190,13 @@ class AptRepository(object):
             release.update_hash(packages_path+'.lzma')
         release_raw = str(release)
         self.storage.upload(release_path, release_raw)
-        # Fun fact, even debian's own tools don't seem to support this InRelease file
-        in_release_path = 'dists/{0}/InRelease'.format(self.codename)
-        self.storage.upload(in_release_path, self.gpg.sign(release_raw))
-        self.storage.upload(release_path+'.gpg', self.gpg.sign(release_raw, detach=True))
 
-        # Upload the pubkey to be nice
-        self.storage.upload('pubkey.gpg', self.gpg.public_key())
+        # GPG signing
+        if self.gpg:
+            # Fun fact, even debian's own tools don't seem to support this InRelease file
+            in_release_path = 'dists/{0}/InRelease'.format(self.codename)
+            self.storage.upload(in_release_path, self.gpg.sign(release_raw))
+            self.storage.upload(release_path+'.gpg', self.gpg.sign(release_raw, detach=True))
+
+            # Upload the pubkey to be nice
+            self.storage.upload('pubkey.gpg', self.gpg.public_key())
