@@ -36,4 +36,5 @@ def main():
     storage = StorageWrapper(args['--storage'], args['--no-public'])
     repo = AptRepository(storage, gpg, args['--codename'], args['--component'], args['--architecture'])
     for pkg_path in args['<package>']:
+        print 'Uploading package %s'%pkg_path
         repo.add_package(pkg_path)
