@@ -18,6 +18,7 @@ from .version import __version__
 class AptMeta(collections.OrderedDict):
     def __init__(self, data):
         super(AptMeta, self).__init__()
+        self._data = data # For testing/debugging
         last_key = None
         for line in data.splitlines() if hasattr(data, 'splitlines') else data.readlines():
             line = line.rstrip('\n')
@@ -32,17 +33,26 @@ class AptMeta(collections.OrderedDict):
                 self[last_key] = value
 
     def __str__(self):
-        return '\n'.join('{0}: {1}'.format(*item) for item in six.iteritems(self))
+        return '\n'.join('{0}:{1}{2}'.format(key, '' if not value or value[0] == '\n' else ' ', value) for key, value in six.iteritems(self))
+
+
+class AptPackage(AptMeta):
+    def __init__(self, filename, fileobj=None, data=None):
+        self.name = filename
+        if not data:
+            if fileobj:
+                self.ar = arpy.Archive(filename or getattr(fileobj, 'name', None), fileobj)
+            else:
+                self.ar = arpy.Archive(filename)
+            self.ar.read_all_headers()
+            self.control_tar = tarfile.open('control.tar.gz', 'r:gz', fileobj=self.ar.archived_files['control.tar.gz'])
+            data = self.control_tar.extractfile('./control')
+        super(AptPackage, self).__init__(data)
 
     @property
     def pool_path(self):
         if not hasattr(self, '_pool_path'):
-            if hasattr(self, 'name'):
-                filename = self.name
-            elif 'Filename' in self:
-                filename = self['Filename']
-            else:
-                raise ValueError('No filename found for %s'%self)
+            filename = self.name or self['Filename']
             first_letter = self['Package'][0]
             if self['Package'].startswith('lib'):
                 first_letter = 'lib' + first_letter
@@ -50,27 +60,15 @@ class AptMeta(collections.OrderedDict):
         return self._pool_path
 
 
-class AptPackage(AptMeta):
-    def __init__(self, filename, fileobj=None):
-        if fileobj:
-            self.name = filename
-            self.ar = arpy.Archive(filename or getattr(fileobj, 'name', None), fileobj)
-        else:
-            self.name = filename
-            self.ar = arpy.Archive(filename)
-        self.ar.read_all_headers()
-        self.control_tar = tarfile.open('control.tar.gz', 'r:gz', fileobj=self.ar.archived_files['control.tar.gz'])
-        super(AptPackage, self).__init__(self.control_tar.extractfile('./control'))
-
-
 class AptPackages(object):
     def __init__(self, storage, data):
         self.storage = storage
         self.packages = {}
+        self._data = data # For testing/debugging
         for buf in data.split('\n\n'):
             if not buf.strip():
                 continue
-            pkg = AptMeta(buf)
+            pkg = AptPackage(None, data=buf)
             self.packages[(pkg['Package'], pkg['Version'])] = pkg
 
     def add(self, pkg):
@@ -107,7 +105,7 @@ class AptRelease(AptMeta):
         }
 
     def _parse_hashes(self, key):
-        hashes = {}
+        hashes = collections.OrderedDict()
         if key in self:
             for line in self[key].splitlines():
                 line = line.strip()
@@ -118,12 +116,12 @@ class AptRelease(AptMeta):
         return hashes
 
     def _compile_hashes(self, key):
-        return '\n' + '\n'.join(' {0} {1} {2}'.format(hash, size, path.split('/',2)[-1]) for path, (hash, size) in six.iteritems(self.hashes[key]))
+        return '\n' + '\n'.join(' {0} {1} {2}'.format(hash, size, path) for path, (hash, size) in six.iteritems(self.hashes[key]))
 
     def update_hash(self, path):
         hashes = self.storage.hashes(path)
         for hash_type in list(six.iterkeys(self.hashes)):
-            self.hashes[hash_type][path] = (hashes[hash_type].hexdigest(), hashes['size'].size)
+            self.hashes[hash_type][path] = (hashes[hash_type].hexdigest(), str(hashes['size'].size))
 
     def add_metadata(self, component, architecture):
         components = set(s for s in self['Components'].split() if s)
@@ -137,11 +135,12 @@ class AptRelease(AptMeta):
         self['MD5Sum'] = self._compile_hashes('md5')
         self['SHA1'] = self._compile_hashes('sha1')
         self['SHA256'] = self._compile_hashes('sha256')
-        now = time.gmtime()
-        # The debian standard (Policy 4.4) really does specify the English labels
-        day_of_week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][now.tm_wday]
-        month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][now.tm_mon - 1]
-        self['Date'] = time.strftime('{0}, %d {1} %Y %H:%M:%S UTC'.format(day_of_week, month), now)
+        if not self.get('Date'):
+            now = time.gmtime()
+            # The debian standard (Policy 4.4) really does specify the English labels
+            day_of_week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][now.tm_wday]
+            month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][now.tm_mon - 1]
+            self['Date'] = time.strftime('{0}, %d {1} %Y %H:%M:%S UTC'.format(day_of_week, month), now)
         return super(AptRelease, self).__str__()
 
 
@@ -189,6 +188,8 @@ class AptRepository(object):
         release.update_hash(packages_path+'.bz2')
         if lzma:
             release.update_hash(packages_path+'.lzma')
+        # Force the date to regenerate
+        release['Date'] = None
         release_raw = str(release)
         self.storage.upload(release_path, release_raw)
 
