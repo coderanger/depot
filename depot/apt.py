@@ -151,6 +151,7 @@ class AptRepository(object):
         self.codename = codename
         self.component = component
         self.architecture = architecture
+        self.dirty_packages = {} # arch: [pkg, pkg]
 
     def add_package(self, path, fileobj=None):
         pkg = AptPackage(path, fileobj)
@@ -167,11 +168,14 @@ class AptRepository(object):
         else:
             fileobj = open(path, 'rb')
         self.storage.upload(pkg.pool_path, fileobj)
+        self.dirty_packages.setdefault(arch, []).append(pkg)
 
+    def commit_package_metadata(self, arch, pkgs):
         # Update the Packages file
         packages_path = 'dists/{0}/{1}/binary-{2}/Packages'.format(self.codename, self.component, arch)
         packages = AptPackages(self.storage, self.storage.download(packages_path, skip_hash=True) or '')
-        packages.add(pkg)
+        for pkg in pkgs:
+            packages.add(pkg)
         packages_raw = str(packages)
         self.storage.upload(packages_path, packages_raw)
         self.storage.upload(packages_path+'.gz', zlib.compress(packages_raw))
@@ -179,16 +183,18 @@ class AptRepository(object):
         if lzma:
             self.storage.upload(packages_path+'.lzma', lzma.compress(packages_raw))
 
+    def commit_release_metadata(self, archs):
         # Update Release
         release_path = 'dists/{0}/Release'.format(self.codename)
         release = AptRelease(self.storage, self.codename, self.storage.download(release_path, skip_hash=True) or '')
-        release.add_metadata(self.component, arch)
-        release_packages_path = '{1}/binary-{2}/Packages'.format(self.component, arch)
-        release.update_hash(release_packages_path)
-        release.update_hash(release_packages_path+'.gz')
-        release.update_hash(release_packages_path+'.bz2')
-        if lzma:
-            release.update_hash(release_packages_path+'.lzma')
+        for arch in archs:
+            release.add_metadata(self.component, arch)
+            release_packages_path = '{0}/binary-{1}/Packages'.format(self.component, arch)
+            release.update_hash(release_packages_path)
+            release.update_hash(release_packages_path+'.gz')
+            release.update_hash(release_packages_path+'.bz2')
+            if lzma:
+                release.update_hash(release_packages_path+'.lzma')
         # Force the date to regenerate
         release['Date'] = None
         release_raw = str(release)
@@ -203,3 +209,8 @@ class AptRepository(object):
 
             # Upload the pubkey to be nice
             self.storage.upload('pubkey.gpg', self.gpg.public_key())
+
+    def commit_metadata(self):
+        for arch, packages in six.iteritems(self.dirty_packages):
+            self.commit_package_metadata(arch, packages)
+        self.commit_release_metadata(six.iterkeys(self.dirty_packages))

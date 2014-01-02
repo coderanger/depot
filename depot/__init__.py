@@ -38,3 +38,5 @@ def main():
     for pkg_path in args['<package>']:
         print 'Uploading package %s'%pkg_path
         repo.add_package(pkg_path)
+    print 'Uploading metadata'
+    repo.commit_metadata()
