@@ -1,9 +1,10 @@
 import bz2
 import collections
+import cStringIO
+import gzip
 import os
 import tarfile
 import time
-import zlib
 
 try:
     import lzma
@@ -13,6 +14,7 @@ except ImportError:
 import arpy
 import six
 
+from .utils import gzip_compress
 from .version import __version__
 
 class AptMeta(collections.OrderedDict):
@@ -178,7 +180,7 @@ class AptRepository(object):
             packages.add(pkg)
         packages_raw = str(packages)
         self.storage.upload(packages_path, packages_raw)
-        self.storage.upload(packages_path+'.gz', zlib.compress(packages_raw))
+        self.storage.upload(packages_path+'.gz', gzip_compress(packages_raw))
         self.storage.upload(packages_path+'.bz2', bz2.compress(packages_raw))
         if lzma:
             self.storage.upload(packages_path+'.lzma', lzma.compress(packages_raw))
