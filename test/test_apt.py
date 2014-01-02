@@ -2,13 +2,13 @@ import os
 import hashlib
 
 import pytest
-from pretend import stub
+from pretend import call_recorder, call, stub
 
 from depot.apt import AptPackages, AptRelease
 
 @pytest.fixture
 def storage():
-    return stub(hashes=lambda path: {'size': stub(size=1), 'sha1': hashlib.sha1(), 'sha256': hashlib.sha256(), 'md5': hashlib.md5()})
+    return stub(hashes=call_recorder(lambda path: {'size': stub(size=1), 'sha1': hashlib.sha1(), 'sha256': hashlib.sha256(), 'md5': hashlib.md5()}))
 
 class TestAptPackages(object):
     @pytest.fixture
@@ -70,6 +70,7 @@ class TestAptRelease(object):
 
     def test_update_hash(self, pgdg):
         pgdg.update_hash('main/binary-amd64/Packages')
+        assert pgdg.storage.hashes.calls == [call('dists/precise-pgdg/main/binary-amd64/Packages')]
         assert pgdg.hashes['md5']['main/binary-amd64/Packages'] == ('d41d8cd98f00b204e9800998ecf8427e', '1')
         assert pgdg.hashes['sha1']['main/binary-amd64/Packages'] == ('da39a3ee5e6b4b0d3255bfef95601890afd80709', '1')
         assert pgdg.hashes['sha256']['main/binary-amd64/Packages'] == ('e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '1')

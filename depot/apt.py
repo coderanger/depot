@@ -119,7 +119,7 @@ class AptRelease(AptMeta):
         return '\n' + '\n'.join(' {0} {1} {2}'.format(hash, size, path) for path, (hash, size) in six.iteritems(self.hashes[key]))
 
     def update_hash(self, path):
-        hashes = self.storage.hashes(path)
+        hashes = self.storage.hashes('dists/{0}/{1}'.format(self.codename, path))
         for hash_type in list(six.iterkeys(self.hashes)):
             self.hashes[hash_type][path] = (hashes[hash_type].hexdigest(), str(hashes['size'].size))
 
@@ -183,11 +183,12 @@ class AptRepository(object):
         release_path = 'dists/{0}/Release'.format(self.codename)
         release = AptRelease(self.storage, self.codename, self.storage.download(release_path, skip_hash=True) or '')
         release.add_metadata(self.component, arch)
-        release.update_hash(packages_path)
-        release.update_hash(packages_path+'.gz')
-        release.update_hash(packages_path+'.bz2')
+        release_packages_path = '{1}/binary-{2}/Packages'.format(self.component, arch)
+        release.update_hash(release_packages_path)
+        release.update_hash(release_packages_path+'.gz')
+        release.update_hash(release_packages_path+'.bz2')
         if lzma:
-            release.update_hash(packages_path+'.lzma')
+            release.update_hash(release_packages_path+'.lzma')
         # Force the date to regenerate
         release['Date'] = None
         release_raw = str(release)
