@@ -156,6 +156,8 @@ class AptRepository(object):
         self.dirty_packages = {} # arch: [pkg, pkg]
 
     def add_package(self, path, fileobj=None):
+        fileobj = fileobj or open(path, 'rb')
+        path = os.path.basename(path)
         pkg = AptPackage(path, fileobj)
         # Check that we have an arch if needed
         arch = pkg['Architecture']
@@ -165,10 +167,7 @@ class AptRepository(object):
                 raise ValueError('Architechture required when adding packages for "any"')
 
         # Stream up the actual package file
-        if fileobj:
-            fileobj.seek(0, 0)
-        else:
-            fileobj = open(path, 'rb')
+        fileobj.seek(0, 0)
         self.storage.upload(pkg.pool_path, fileobj)
         self.dirty_packages.setdefault(arch, []).append(pkg)
 
