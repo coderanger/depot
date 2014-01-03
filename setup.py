@@ -20,7 +20,7 @@ class PyTest(TestCommand):
 
 setup(
     name = 'depot',
-    version = '0.0.4',
+    version = '0.0.6',
     packages = find_packages(),
     author = 'Noah Kantrowitz',
     author_email = 'noah@coderanger.net',
