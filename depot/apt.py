@@ -1,3 +1,4 @@
+# coding=utf8
 import bz2
 import collections
 import cStringIO
@@ -35,7 +36,7 @@ class AptMeta(collections.OrderedDict):
                 self[last_key] = value
 
     def __str__(self):
-        return '\n'.join('{0}:{1}{2}'.format(key, '' if not value or value[0] == '\n' else ' ', value) for key, value in six.iteritems(self))
+        return '\n'.join('{0}:{1}{2}'.format(key, '' if value[0] == '\n' else ' ', value) for key, value in six.iteritems(self) if value)
 
 
 class AptPackage(AptMeta):
@@ -154,6 +155,7 @@ class AptRepository(object):
         self.component = component
         self.architecture = architecture
         self.dirty_packages = {} # arch: [pkg, pkg]
+        self.dirty_sources = False
 
     def add_package(self, path, fileobj=None):
         fileobj = fileobj or open(path, 'rb')
@@ -184,6 +186,26 @@ class AptRepository(object):
         if lzma:
             self.storage.upload(packages_path+'.lzma', lzma.compress(packages_raw))
 
+    def commit_sources_metadata(self):
+        # Update the Sources file
+        sources_path = 'dists/{0}/{1}/source/Sources'.format(self.codename, self.component)
+        if sources_path in self.storage:
+            return
+        sources_content = ''
+        # https://issues.apache.org/jira/browse/LIBCLOUD-490 ಠ_ಠ ಠ_ಠ
+        try:
+            from libcloud.storage.drivers.s3 import S3StorageDriver
+            old_supports_s3_multipart_upload = S3StorageDriver.supports_s3_multipart_upload
+            S3StorageDriver.supports_s3_multipart_upload = False
+            self.storage.upload(sources_path, sources_content)
+        finally:
+            S3StorageDriver.supports_s3_multipart_upload = old_supports_s3_multipart_upload
+        self.storage.upload(sources_path+'.gz', gzip_compress(sources_content))
+        self.storage.upload(sources_path+'.bz2', bz2.compress(sources_content))
+        if lzma:
+            self.storage.upload(sources_path+'.lzma', lzma.compress(sources_content))
+        self.dirty_sources = True
+
     def commit_release_metadata(self, archs):
         # Update Release
         release_path = 'dists/{0}/Release'.format(self.codename)
@@ -196,6 +218,13 @@ class AptRepository(object):
             release.update_hash(release_packages_path+'.bz2')
             if lzma:
                 release.update_hash(release_packages_path+'.lzma')
+        if self.dirty_sources:
+            release_sources_path = '{0}/source/Sources'.format(self.component)
+            release.update_hash(release_sources_path)
+            release.update_hash(release_sources_path+'.gz')
+            release.update_hash(release_sources_path+'.bz2')
+            if lzma:
+                release.update_hash(release_sources_path+'.lzma')
         # Force the date to regenerate
         release['Date'] = None
         release_raw = str(release)
@@ -214,4 +243,5 @@ class AptRepository(object):
     def commit_metadata(self):
         for arch, packages in six.iteritems(self.dirty_packages):
             self.commit_package_metadata(arch, packages)
+        self.commit_sources_metadata()
         self.commit_release_metadata(six.iterkeys(self.dirty_packages))
