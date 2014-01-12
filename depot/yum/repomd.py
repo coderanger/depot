@@ -57,11 +57,10 @@ class YumRepoMD(YumMeta):
         self.tags = tags or []
 
     @classmethod
-    def from_element(cls, root):
-        self = cls(
-            revision=int(root.find('{*}revision').text),
-            tags=[elm.text for elm in root.findall('{*}tags/{*}content')],
-        )
+    def from_element(cls, root, *args, **kwargs):
+        kwargs['revision'] = int(root.find('{*}revision').text)
+        kwargs['tags'] = [elm.text for elm in root.findall('{*}tags/{*}content')]
+        self = cls(*args, **kwargs)
         for elm in root.findall('{*}data'):
             data = self.DataClass.from_element(elm)
             self[data.type] = data

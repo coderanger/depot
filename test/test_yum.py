@@ -10,6 +10,7 @@ from depot.yum import YumRepoMD, YumPrimary
 def unify_spacing(data):
     return re.sub('>', '>\n', re.sub('\s+', ' ', re.sub('>', '>\n', re.sub('\n', '', data))))
 
+
 class TestYumRepoMD(object):
     @pytest.fixture
     def epel(self):
@@ -27,11 +28,11 @@ class TestYumRepoMD(object):
         assert epel['group']['location'] == 'repodata/fdddf90da3a700ad6da5ff78e13c17258655bbe3-comps-el5.xml'
 
     def test_str_epel(self, epel):
-        raw = open(os.path.join(os.path.dirname(__file__), 'data', 'epel_repomd.xml'), 'rb').read()
+        raw = open(epel.filename, 'rb').read()
         assert unify_spacing(str(epel)) == unify_spacing(raw)
 
     def test_str_pgdg(self, pgdg):
-        raw = open(os.path.join(os.path.dirname(__file__), 'data', 'pgdg_repomd.xml'), 'rb').read()
+        raw = open(pgdg.filename, 'rb').read()
         assert unify_spacing(str(pgdg)) == unify_spacing(raw)
 
 
@@ -56,15 +57,14 @@ class TestYumPrimary(object):
 
 
     def test_str_epel(self, epel):
-      raw = open(os.path.join(os.path.dirname(__file__), 'data', 'epel_primary.xml'), 'rb').read()
-      assert unify_spacing(str(epel)) == unify_spacing(raw)
+        raw = open(epel.filename, 'rb').read()
+        assert unify_spacing(str(epel)) == unify_spacing(raw)
 
     def test_str_pgdg(self, pgdg):
-      raw = open(os.path.join(os.path.dirname(__file__), 'data', 'pgdg_primary.xml'), 'rb').read()
-      assert unify_spacing(str(pgdg)) == unify_spacing(raw)
+        raw = open(pgdg.filename, 'rb').read()
+        assert unify_spacing(str(pgdg)) == unify_spacing(raw)
 
     def test_str_pgdgmini(self, pgdgmini):
-        path = os.path.join(os.path.dirname(__file__), 'data', 'pgdgmini_primary.xml')
-        raw = open(path, 'rb').read()
+        raw = open(pgdgmini.filename, 'rb').read()
         assert unify_spacing(str(pgdgmini)) == unify_spacing(raw)
 

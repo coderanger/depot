@@ -27,13 +27,19 @@ import six
 class YumMeta(collections.OrderedDict):
     nsmap = {}
 
-    @classmethod
-    def from_file(cls, filename, fileobj=None):
-        fileobj = fileobj or open(filename, 'rb')
-        return cls.from_element(lxml.parse(fileobj))
+    def __init__(self, *args, **kwargs):
+        self.filename = kwargs.pop('filename') if 'filename' in kwargs else None
+        super(YumMeta, self).__init__(*args, **kwargs)
 
     @classmethod
-    def from_element(cls, root):
+    def from_file(cls, filename=None, fileobj=None, *args, **kwargs):
+        fileobj = fileobj or open(filename, 'rb')
+        kwargs['filename'] = filename
+        kwargs['root'] = lxml.parse(fileobj)
+        return cls.from_element(*args, **kwargs)
+
+    @classmethod
+    def from_element(cls, root, *args, **kwargs):
         raise NotImplementedError
 
     def to_element(self, E):

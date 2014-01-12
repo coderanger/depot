@@ -138,8 +138,8 @@ class YumPrimary(YumMeta):
     }
 
     @classmethod
-    def from_element(cls, root):
-        self = cls()
+    def from_element(cls, root, *args, **kwargs):
+        self = cls(*args, **kwargs)
         for elm in root.findall('{*}package'):
             pkg = self.PackageClass.from_element(elm)
             self[(pkg['name'], pkg['arch'], pkg.full_version())] = pkg
