@@ -4,9 +4,6 @@ python:
 - "2.7"
 - "3.2"
 - "3.3"
-
-install:
-- pip install -e .
 script:
 - flake8 depot
 - py.test
