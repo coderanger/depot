@@ -11,10 +11,10 @@ class YumRepoMDData(collections.OrderedDict):
         self.type = type
 
     @classmethod
-    def from_element(cls, elm):
-        self = cls(elm.attrib['type'])
-        for sub in elm.findall('*'):
-            self[QName(sub.tag).localname] = sub.attrib.get('href', sub.text)
+    def from_element(cls, root):
+        self = cls(root.attrib['type'])
+        for elm in root.findall('*'):
+            self[QName(elm.tag).localname] = elm.attrib.get('href', elm.text)
         return self
 
     def to_element(self, E):
@@ -30,26 +30,36 @@ class YumRepoMDData(collections.OrderedDict):
         return E.data(*sub, type=self.type)
 
 
-class YumRepoMD(object):
-    def __init__(self):
-        self.revision = 0
-        self.tags = []
-        self.data = collections.OrderedDict()
+class YumRepoMD(collections.OrderedDict):
+    DataClass = YumRepoMDData
+
+    def __init__(self, revision=0, tags=None, *args, **kwargs):
+        super(YumRepoMD, self).__init__(*args, **kwargs)
+        self.revision = revision
+        self.tags = tags or []
 
     @classmethod
     def from_file(cls, filename, fileobj=None):
         fileobj = fileobj or open(filename, 'rb')
-        root = lxml.parse(fileobj)
-        self = cls()
-        self.revision = int(root.find('{*}revision').text)
-        self.tags = [elm.text for elm in root.findall('{*}tags/{*}content')]
+        return cls.from_element(lxml.parse(fileobj))
+
+    @classmethod
+    def from_element(cls, root):
+        self = cls(
+            revision=int(root.find('{*}revision').text),
+            tags=[elm.text for elm in root.findall('{*}tags/{*}content')],
+        )
         for elm in root.findall('{*}data'):
-            data = YumRepoMDData.from_element(elm)
-            self.data[data.type] = data
+            data = self.DataClass.from_element(elm)
+            self[data.type] = data
         return self
 
-    def __getitem__(self, key):
-        return self.data[key]
+    def to_element(self, E):
+        return E.repomd(
+            E.revision(str(self.revision)),
+            E.tags(*[E.content(tag) for tag in self.tags]),
+            *[data.to_element(E) for data in six.itervalues(self)]
+        )
 
     def __str__(self):
         nsmap = {
@@ -57,9 +67,4 @@ class YumRepoMD(object):
             'rpm': 'http://linux.duke.edu/metadata/rpm',
         }
         E = ElementMaker(nsmap=nsmap)
-        root = E.repomd(
-            E.revision(str(self.revision)),
-            E.tags(*[E.content(tag) for tag in self.tags]),
-            *[data.to_element(E) for data in six.itervalues(self.data)]
-        )
-        return '<?xml version="1.0" ?>\n' + lxml.tostring(root, encoding=unicode).encode('utf-8')
+        return '<?xml version="1.0" ?>\n' + lxml.tostring(self.to_element(E), encoding=unicode).encode('utf-8')
