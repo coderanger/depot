@@ -87,5 +87,5 @@ class YumData(collections.OrderedDict):
             sub.append(elm)
         return self.root_to_element(E, sub)
 
-    def root_to_element(E, sub):
+    def root_to_element(self, E, sub):
         return E.data(*sub)
