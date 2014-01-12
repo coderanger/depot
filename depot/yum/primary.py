@@ -80,10 +80,6 @@ class YumPrimaryPackage(YumData):
         super(YumPrimaryPackage, self).__init__(*args, **kwargs)
         self.type = type
 
-    @classmethod
-    def root_from_element(cls, root):
-        return {'type': root.attrib['type']}
-
     def location_from_element(self, key, elm):
         return elm.attrib['href']
 

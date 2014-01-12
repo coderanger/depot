@@ -71,7 +71,7 @@ class YumData(collections.OrderedDict):
 
     @classmethod
     def root_from_element(cls, root):
-        return {}
+        return root.attrib
 
     def to_element(self, E):
         sub = []
