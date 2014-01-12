@@ -1,6 +1,8 @@
 Depot
 =====
 
+.. image:: https://travis-ci.org/coderanger/depot.png?branch=master   :target: https://travis-ci.org/coderanger/depot
+
 Used to push, it is a replacement for reprepro+s3cmd sync and whatnot.
 
 It does incremental updates of a repo, so you don't need to keep a full local copy of the repo anymore.
