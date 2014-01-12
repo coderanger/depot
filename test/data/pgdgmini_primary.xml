@@ -1,0 +1,2344 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata xmlns:rpm="http://linux.duke.edu/metadata/rpm" xmlns="http://linux.duke.edu/metadata/common" packages="44">
+<package type="rpm">
+  <name>ip4r93</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="1.05" rel="3.rhel6"/>
+  <checksum type="sha" pkgid="YES">a6fdef5d1026dea208eeeba148f55ac2f545989b</checksum>
+  <summary>IPv4 and IPv4 range index types for PostgreSQL</summary>
+  <description>ip4 and ip4r are types that contain a single IPv4 address and a range of
+IPv4 addresses respectively. They can be used as a more flexible,
+indexable version of the cidr type.</description>
+  <packager></packager>
+  <url>http://pgfoundry.org/projects/ip4r</url>
+  <time file="1379321684" build="1379321684"/>
+  <size package="21784" installed="63545" archive="64116"/>
+<location href="ip4r93-1.05-3.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>BSD</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>ip4r93-1.05-3.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="3552"/>
+    <rpm:provides>
+      <rpm:entry name="ip4r.so()(64bit)"/>
+      <rpm:entry name="postgresql-ip4r"/>
+      <rpm:entry name="ip4r93" flags="EQ" epoch="0" ver="1.05" rel="3.rhel6"/>
+      <rpm:entry name="ip4r93(x86-64)" flags="EQ" epoch="0" ver="1.05" rel="3.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="postgresql93-server"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>postgresql93-debuginfo</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+  <checksum type="sha" pkgid="YES">048be8c5573c0d92bf64e476beb739c31b2d0f91</checksum>
+  <summary>Debug information for package postgresql93</summary>
+  <description>This package provides debug information for package postgresql93.
+Debug information is useful when developing applications that use this
+package or when debugging this package.</description>
+  <packager></packager>
+  <url>http://www.postgresql.org/</url>
+  <time file="1381310401" build="1381310360"/>
+  <size package="14718408" installed="74355873" archive="74729944"/>
+<location href="postgresql93-debuginfo-9.3.1-1PGDG.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>PostgreSQL</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Development/Debug</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>postgresql93-9.3.1-1PGDG.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="251776"/>
+    <rpm:provides>
+      <rpm:entry name="postgresql93-debuginfo" flags="EQ" epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+      <rpm:entry name="postgresql93-debuginfo(x86-64)" flags="EQ" epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+    </rpm:requires>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/clusterdb.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/createdb.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/createlang.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/createuser.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/dropdb.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/droplang.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/dropuser.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/ecpg.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/initdb.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/oid2name.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pg_archivecleanup.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pg_basebackup.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pg_config.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pg_controldata.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pg_ctl.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pg_dump.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pg_dumpall.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pg_isready.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pg_receivexlog.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pg_resetxlog.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pg_restore.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pg_standby.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pg_test_fsync.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pg_test_timing.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pg_upgrade.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pg_xlogdump.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pgbench.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/postgres.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/postmaster.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/psql.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/reindexdb.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/vacuumdb.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/vacuumlo.debug</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/initdb/encnames.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/initdb/findtimezone.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/initdb/initdb.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/initdb/localtime.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_basebackup/pg_basebackup.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_basebackup/pg_receivexlog.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_basebackup/receivelog.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_basebackup/receivelog.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_basebackup/streamutil.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_basebackup/streamutil.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_config/pg_config.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_controldata/pg_controldata.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_ctl/pg_ctl.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/common.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/compress_io.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/compress_io.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/dumputils.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/dumputils.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/keywords.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/kwlookup.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/parallel.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/parallel.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/pg_backup.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/pg_backup_archiver.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/pg_backup_archiver.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/pg_backup_custom.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/pg_backup_db.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/pg_backup_directory.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/pg_backup_null.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/pg_backup_tar.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/pg_backup_utils.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/pg_backup_utils.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/pg_dump.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/pg_dump.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/pg_dump_sort.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/pg_dumpall.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump/pg_restore.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/pg_resetxlog/pg_resetxlog.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/command.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/command.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/common.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/common.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/copy.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/describe.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/dumputils.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/help.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/input.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/keywords.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/kwlookup.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/large_obj.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/mainloop.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/mbprint.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/mbprint.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/print.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/print.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/prompt.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/prompt.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/psqlscan.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/psqlscan.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/psqlscan.l</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/settings.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/sql_help.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/sql_help.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/startup.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/stringutils.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/tab-complete.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/variables.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/psql/variables.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/scripts/clusterdb.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/scripts/common.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/scripts/common.h</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/scripts/createdb.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/scripts/createlang.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/scripts/createuser.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/scripts/dropdb.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/scripts/droplang.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/scripts/dropuser.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/scripts/dumputils.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/scripts/keywords.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/scripts/kwlookup.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/scripts/mbprint.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/scripts/pg_isready.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/scripts/print.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/scripts/reindexdb.c</file>
+    <file>/usr/src/debug/postgresql-9.3.1/src/bin/scripts/vacuumdb.c</file>
+    <file type="dir">/usr/src/debug/postgresql-9.3.1/src/bin/initdb</file>
+    <file type="dir">/usr/src/debug/postgresql-9.3.1/src/bin/pg_basebackup</file>
+    <file type="dir">/usr/src/debug/postgresql-9.3.1/src/bin/pg_config</file>
+    <file type="dir">/usr/src/debug/postgresql-9.3.1/src/bin/pg_controldata</file>
+    <file type="dir">/usr/src/debug/postgresql-9.3.1/src/bin/pg_ctl</file>
+    <file type="dir">/usr/src/debug/postgresql-9.3.1/src/bin/pg_dump</file>
+    <file type="dir">/usr/src/debug/postgresql-9.3.1/src/bin/pg_resetxlog</file>
+    <file type="dir">/usr/src/debug/postgresql-9.3.1/src/bin/psql</file>
+    <file type="dir">/usr/src/debug/postgresql-9.3.1/src/bin/scripts</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>postgis2_93-debuginfo</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="2.1.0" rel="4.rhel6"/>
+  <checksum type="sha" pkgid="YES">1e1aab20446c48880728c1de1c0c888e3618132f</checksum>
+  <summary>Debug information for package postgis2_93</summary>
+  <description>This package provides debug information for package postgis2_93.
+Debug information is useful when developing applications that use this
+package or when debugging this package.</description>
+  <packager></packager>
+  <url>http://postgis.refractions.net/</url>
+  <time file="1381238983" build="1381238977"/>
+  <size package="1772844" installed="7850587" archive="7879520"/>
+<location href="postgis2_93-debuginfo-2.1.0-4.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>GPLv2+</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Development/Debug</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>postgis2_93-2.1.0-4.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="24772"/>
+    <rpm:provides>
+      <rpm:entry name="postgis2_93-debuginfo" flags="EQ" epoch="0" ver="2.1.0" rel="4.rhel6"/>
+      <rpm:entry name="postgis2_93-debuginfo(x86-64)" flags="EQ" epoch="0" ver="2.1.0" rel="4.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+    </rpm:requires>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pgsql2shp.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/raster2pgsql.debug</file>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/shp2pgsql.debug</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>libpqxx</name>
+  <arch>x86_64</arch>
+  <version epoch="1" ver="4.0.1" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">b14c4b323577a6ca2f646cf3fe785d5e711fcc85</checksum>
+  <summary>C++ client API for PostgreSQL</summary>
+  <description>C++ client API for PostgreSQL. The standard front-end (in the sense of
+"language binding") for writing C++ programs that use PostgreSQL.
+Supersedes older libpq++ interface.</description>
+  <packager></packager>
+  <url>http://pqxx.org/</url>
+  <time file="1379322100" build="1379322099"/>
+  <size package="192888" installed="655339" archive="656648"/>
+<location href="libpqxx-4.0.1-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>BSD</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>System Environment/Libraries</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>libpqxx-4.0.1-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="4224"/>
+    <rpm:provides>
+      <rpm:entry name="libpqxx-4.0.so()(64bit)"/>
+      <rpm:entry name="libpqxx" flags="EQ" epoch="1" ver="4.0.1" rel="1.rhel6"/>
+      <rpm:entry name="libpqxx(x86-64)" flags="EQ" epoch="1" ver="4.0.1" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libgcc_s.so.1(GCC_3.0)(64bit)"/>
+      <rpm:entry name="libgcc_s.so.1()(64bit)"/>
+      <rpm:entry name="libstdc++.so.6()(64bit)"/>
+      <rpm:entry name="libstdc++.so.6(CXXABI_1.3)(64bit)"/>
+      <rpm:entry name="libpq.so.5()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="/sbin/ldconfig"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="libstdc++.so.6(GLIBCXX_3.4.9)(64bit)"/>
+      <rpm:entry name="libstdc++.so.6(GLIBCXX_3.4)(64bit)"/>
+      <rpm:entry name="/sbin/ldconfig" pre="1"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="libm.so.6()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>postgresql93</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+  <checksum type="sha" pkgid="YES">40d9b47dd9e6f34750f6ee8e6003d1e2c8cef8d2</checksum>
+  <summary>PostgreSQL client programs and libraries</summary>
+  <description>PostgreSQL is an advanced Object-Relational database management system
+(DBMS) that supports almost all SQL constructs (including
+transactions, subselects and user-defined types and functions). The
+postgresql package includes the client programs and libraries that
+you'll need to access a PostgreSQL DBMS server.  These PostgreSQL
+client programs are programs that directly manipulate the internal
+structure of PostgreSQL databases on a PostgreSQL server. These client
+programs can be located on the same machine with the PostgreSQL
+server, or may be on a remote machine which accesses a PostgreSQL
+server over a network connection. This package contains the command-line
+utilities for managing PostgreSQL databases on a PostgreSQL server.
+
+If you want to manipulate a PostgreSQL database on a local or remote PostgreSQL
+server, you need this package. You also need to install this package
+if you're installing the postgresql93-server package.</description>
+  <packager></packager>
+  <url>http://www.postgresql.org/</url>
+  <time file="1381310370" build="1381310360"/>
+  <size package="1038512" installed="5419804" archive="5472860"/>
+<location href="postgresql93-9.3.1-1PGDG.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>PostgreSQL</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>postgresql93-9.3.1-1PGDG.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="61080"/>
+    <rpm:provides>
+      <rpm:entry name="postgresql"/>
+      <rpm:entry name="postgresql93" flags="EQ" epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+      <rpm:entry name="postgresql93(x86-64)" flags="EQ" epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="/usr/sbin/update-alternatives"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.11)(64bit)"/>
+      <rpm:entry name="libreadline.so.6()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="/bin/sh"/>
+      <rpm:entry name="/usr/sbin/update-alternatives" pre="1"/>
+      <rpm:entry name="initscripts"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3)(64bit)"/>
+      <rpm:entry name="/sbin/ldconfig"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="libssl.so.10()(64bit)"/>
+      <rpm:entry name="libz.so.1()(64bit)"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="postgresql93-libs" flags="EQ" epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+      <rpm:entry name="/bin/sh" pre="1"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.3)(64bit)"/>
+      <rpm:entry name="libpq.so.5()(64bit)"/>
+    </rpm:requires>
+    <file>/usr/pgsql-9.3/bin/clusterdb</file>
+    <file>/usr/pgsql-9.3/bin/createdb</file>
+    <file>/usr/pgsql-9.3/bin/createlang</file>
+    <file>/usr/pgsql-9.3/bin/createuser</file>
+    <file>/usr/pgsql-9.3/bin/dropdb</file>
+    <file>/usr/pgsql-9.3/bin/droplang</file>
+    <file>/usr/pgsql-9.3/bin/dropuser</file>
+    <file>/usr/pgsql-9.3/bin/pg_basebackup</file>
+    <file>/usr/pgsql-9.3/bin/pg_config</file>
+    <file>/usr/pgsql-9.3/bin/pg_dump</file>
+    <file>/usr/pgsql-9.3/bin/pg_dumpall</file>
+    <file>/usr/pgsql-9.3/bin/pg_isready</file>
+    <file>/usr/pgsql-9.3/bin/pg_receivexlog</file>
+    <file>/usr/pgsql-9.3/bin/pg_restore</file>
+    <file>/usr/pgsql-9.3/bin/pg_test_fsync</file>
+    <file>/usr/pgsql-9.3/bin/psql</file>
+    <file>/usr/pgsql-9.3/bin/reindexdb</file>
+    <file>/usr/pgsql-9.3/bin/vacuumdb</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>postgresql93-server</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="9.3.0" rel="1PGDG.rhel6"/>
+  <checksum type="sha" pkgid="YES">ec8fb497e25a81d221feb6169f66b38df9f6d09b</checksum>
+  <summary>The programs needed to create and run a PostgreSQL server</summary>
+  <description>The postgresql93-server package includes the programs needed to create
+and run a PostgreSQL server, which will in turn allow you to create
+and maintain PostgreSQL databases.  PostgreSQL is an advanced
+Object-Relational database management system (DBMS) that supports
+almost all SQL constructs (including transactions, subselects and
+user-defined types and functions). You should install
+postgresql93-server if you want to create and maintain your own
+PostgreSQL databases and/or your own PostgreSQL server. You also need
+to install the postgresql package.</description>
+  <packager></packager>
+  <url>http://www.postgresql.org/</url>
+  <time file="1378711558" build="1378711536"/>
+  <size package="4192368" installed="16174485" archive="16198112"/>
+<location href="postgresql93-server-9.3.0-1PGDG.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>PostgreSQL</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>postgresql93-9.3.0-1PGDG.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="31528"/>
+    <rpm:provides>
+      <rpm:entry name="ascii_and_mic.so()(64bit)"/>
+      <rpm:entry name="config(postgresql93-server)" flags="EQ" epoch="0" ver="9.3.0" rel="1PGDG.rhel6"/>
+      <rpm:entry name="cyrillic_and_mic.so()(64bit)"/>
+      <rpm:entry name="dict_int.so()(64bit)"/>
+      <rpm:entry name="dict_snowball.so()(64bit)"/>
+      <rpm:entry name="dict_xsyn.so()(64bit)"/>
+      <rpm:entry name="euc2004_sjis2004.so()(64bit)"/>
+      <rpm:entry name="euc_cn_and_mic.so()(64bit)"/>
+      <rpm:entry name="euc_jp_and_sjis.so()(64bit)"/>
+      <rpm:entry name="euc_kr_and_mic.so()(64bit)"/>
+      <rpm:entry name="euc_tw_and_big5.so()(64bit)"/>
+      <rpm:entry name="latin2_and_win1250.so()(64bit)"/>
+      <rpm:entry name="latin_and_mic.so()(64bit)"/>
+      <rpm:entry name="plpgsql.so()(64bit)"/>
+      <rpm:entry name="postgresql-server"/>
+      <rpm:entry name="test_parser.so()(64bit)"/>
+      <rpm:entry name="tsearch2.so()(64bit)"/>
+      <rpm:entry name="utf8_and_ascii.so()(64bit)"/>
+      <rpm:entry name="utf8_and_big5.so()(64bit)"/>
+      <rpm:entry name="utf8_and_cyrillic.so()(64bit)"/>
+      <rpm:entry name="utf8_and_euc2004.so()(64bit)"/>
+      <rpm:entry name="utf8_and_euc_cn.so()(64bit)"/>
+      <rpm:entry name="utf8_and_euc_jp.so()(64bit)"/>
+      <rpm:entry name="utf8_and_euc_kr.so()(64bit)"/>
+      <rpm:entry name="utf8_and_euc_tw.so()(64bit)"/>
+      <rpm:entry name="utf8_and_gb18030.so()(64bit)"/>
+      <rpm:entry name="utf8_and_gbk.so()(64bit)"/>
+      <rpm:entry name="utf8_and_iso8859.so()(64bit)"/>
+      <rpm:entry name="utf8_and_iso8859_1.so()(64bit)"/>
+      <rpm:entry name="utf8_and_johab.so()(64bit)"/>
+      <rpm:entry name="utf8_and_sjis.so()(64bit)"/>
+      <rpm:entry name="utf8_and_sjis2004.so()(64bit)"/>
+      <rpm:entry name="utf8_and_uhc.so()(64bit)"/>
+      <rpm:entry name="utf8_and_win.so()(64bit)"/>
+      <rpm:entry name="postgresql93-server" flags="EQ" epoch="0" ver="9.3.0" rel="1PGDG.rhel6"/>
+      <rpm:entry name="postgresql93-server(x86-64)" flags="EQ" epoch="0" ver="9.3.0" rel="1PGDG.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="/usr/sbin/useradd"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.11)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="libcrypto.so.10()(64bit)"/>
+      <rpm:entry name="libpam.so.0()(64bit)"/>
+      <rpm:entry name="libm.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libxml2.so.2(LIBXML2_2.6.0)(64bit)"/>
+      <rpm:entry name="libm.so.6()(64bit)"/>
+      <rpm:entry name="libxml2.so.2(LIBXML2_2.4.30)(64bit)"/>
+      <rpm:entry name="/bin/sh"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.7)(64bit)"/>
+      <rpm:entry name="postgresql93" flags="EQ" epoch="0" ver="9.3.0" rel="1PGDG.rhel6"/>
+      <rpm:entry name="/sbin/chkconfig"/>
+      <rpm:entry name="libkrb5.so.3(krb5_3_MIT)(64bit)"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="libxml2.so.2()(64bit)"/>
+      <rpm:entry name="libgssapi_krb5.so.2(gssapi_krb5_2_MIT)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3)(64bit)"/>
+      <rpm:entry name="libgssapi_krb5.so.2()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.6)(64bit)"/>
+      <rpm:entry name="libcom_err.so.2()(64bit)"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="libdl.so.2(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libldap-2.4.so.2()(64bit)"/>
+      <rpm:entry name="libssl.so.10()(64bit)"/>
+      <rpm:entry name="libpam.so.0(LIBPAM_1.0)(64bit)"/>
+      <rpm:entry name="libkrb5.so.3()(64bit)"/>
+      <rpm:entry name="libdl.so.2()(64bit)"/>
+      <rpm:entry name="/bin/sh" pre="1"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.3)(64bit)"/>
+      <rpm:entry name="libpq.so.5()(64bit)"/>
+    </rpm:requires>
+    <file>/etc/pam.d/postgresql93</file>
+    <file>/etc/rc.d/init.d/postgresql-9.3</file>
+    <file>/usr/pgsql-9.3/bin/initdb</file>
+    <file>/usr/pgsql-9.3/bin/pg_controldata</file>
+    <file>/usr/pgsql-9.3/bin/pg_ctl</file>
+    <file>/usr/pgsql-9.3/bin/pg_resetxlog</file>
+    <file>/usr/pgsql-9.3/bin/postgres</file>
+    <file>/usr/pgsql-9.3/bin/postmaster</file>
+    <file type="dir">/etc/sysconfig/pgsql</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>postgis2_93</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="2.1.0" rel="4.rhel6"/>
+  <checksum type="sha" pkgid="YES">23b8bbe1faa236cc00cceeea39701b0d209f8345</checksum>
+  <summary>Geographic Information Systems Extensions to PostgreSQL</summary>
+  <description>PostGIS adds support for geographic objects to the PostgreSQL object-relational
+database. In effect, PostGIS "spatially enables" the PostgreSQL server,
+allowing it to be used as a backend spatial database for geographic information
+systems (GIS), much like ESRI's SDE or Oracle's Spatial extension. PostGIS
+follows the OpenGIS "Simple Features Specification for SQL" and has been
+certified as compliant with the "Types and Functions" profile.</description>
+  <packager></packager>
+  <url>http://postgis.refractions.net/</url>
+  <time file="1381238980" build="1381238977"/>
+  <size package="5003572" installed="35906451" archive="35951968"/>
+<location href="postgis2_93-2.1.0-4.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>GPLv2+</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>postgis2_93-2.1.0-4.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="46560"/>
+    <rpm:provides>
+      <rpm:entry name="liblwgeom-2.1.0.so()(64bit)"/>
+      <rpm:entry name="postgis" flags="EQ" epoch="0" ver="2.1.0" rel="4.rhel6"/>
+      <rpm:entry name="postgis-2.0.so()(64bit)"/>
+      <rpm:entry name="postgis-2.1.so()(64bit)"/>
+      <rpm:entry name="rtpostgis-2.1.so()(64bit)"/>
+      <rpm:entry name="postgis2_93" flags="EQ" epoch="0" ver="2.1.0" rel="4.rhel6"/>
+      <rpm:entry name="postgis2_93(x86-64)" flags="EQ" epoch="0" ver="2.1.0" rel="4.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libproj.so.0()(64bit)"/>
+      <rpm:entry name="proj"/>
+      <rpm:entry name="libgdal.so.1()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="hdf5"/>
+      <rpm:entry name="libjson.so.0()(64bit)"/>
+      <rpm:entry name="libm.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libxml2.so.2(LIBXML2_2.6.0)(64bit)"/>
+      <rpm:entry name="libm.so.6()(64bit)"/>
+      <rpm:entry name="perl(warnings)"/>
+      <rpm:entry name="libxml2.so.2(LIBXML2_2.4.30)(64bit)"/>
+      <rpm:entry name="postgis-client" flags="EQ" epoch="0" ver="2.1.0" rel="4.rhel6"/>
+      <rpm:entry name="/bin/sh"/>
+      <rpm:entry name="/usr/sbin/update-alternatives" pre="1"/>
+      <rpm:entry name="libxml2.so.2(LIBXML2_2.5.2)(64bit)"/>
+      <rpm:entry name="libxml2.so.2()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3)(64bit)"/>
+      <rpm:entry name="libgeos_c.so.1()(64bit)"/>
+      <rpm:entry name="postgresql93"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="perl(strict)"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="json-c"/>
+      <rpm:entry name="/usr/bin/perl"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="/bin/sh" pre="1"/>
+      <rpm:entry name="geos" flags="GE" epoch="0" ver="3.4.2"/>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>python-psycopg2-test</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="2.5.1" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">5e8accfa67c66715a91653870c8303522aa57c90</checksum>
+  <summary>Tests for psycopg2</summary>
+  <description>Tests for psycopg2.</description>
+  <packager></packager>
+  <url>http://www.psycopg.org/psycopg/</url>
+  <time file="1372593288" build="1372593287"/>
+  <size package="134052" installed="756112" archive="769208"/>
+<location href="python-psycopg2-test-2.5.1-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>GPL (with Exceptions)</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Development Libraries</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>python-psycopg2-2.5.1-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="15760"/>
+    <rpm:provides>
+      <rpm:entry name="python-psycopg2-test" flags="EQ" epoch="0" ver="2.5.1" rel="1.rhel6"/>
+      <rpm:entry name="python-psycopg2-test(x86-64)" flags="EQ" epoch="0" ver="2.5.1" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="python(abi)" flags="EQ" epoch="0" ver="2.6"/>
+      <rpm:entry name="python-psycopg2" flags="EQ" epoch="0" ver="2.5.1" rel="1.rhel6"/>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>pgxnclient-debuginfo</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="1.2.1" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">33252b2164ed552ae12bab3bb26c06b5c7acf899</checksum>
+  <summary>Debug information for package pgxnclient</summary>
+  <description>This package provides debug information for package pgxnclient.
+Debug information is useful when developing applications that use this
+package or when debugging this package.</description>
+  <packager></packager>
+  <url>http://pgxnclient.projects.postgresql.org/</url>
+  <time file="1380225242" build="1380225242"/>
+  <size package="2192" installed="0" archive="124"/>
+<location href="pgxnclient-debuginfo-1.2.1-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>BSD</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Development/Debug</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>pgxnclient-1.2.1-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="2076"/>
+    <rpm:provides>
+      <rpm:entry name="pgxnclient-debuginfo" flags="EQ" epoch="0" ver="1.2.1" rel="1.rhel6"/>
+      <rpm:entry name="pgxnclient-debuginfo(x86-64)" flags="EQ" epoch="0" ver="1.2.1" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>skytools-93-modules</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="3.1.5" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">01364da8e40f4023350c916e4d1282bfd8f43416</checksum>
+  <summary>PostgreSQL modules of Skytools</summary>
+  <description>This package has PostgreSQL modules of skytools.</description>
+  <packager></packager>
+  <url>http://pgfoundry.org/projects/skytools</url>
+  <time file="1377010242" build="1377010240"/>
+  <size package="20424" installed="45278" archive="46020"/>
+<location href="skytools-93-modules-3.1.5-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>BSD</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>skytools-93-3.1.5-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="3660"/>
+    <rpm:provides>
+      <rpm:entry name="pgq_lowlevel.so()(64bit)"/>
+      <rpm:entry name="pgq_triggers.so()(64bit)"/>
+      <rpm:entry name="skytools-93-modules" flags="EQ" epoch="0" ver="3.1.5" rel="1.rhel6"/>
+      <rpm:entry name="skytools-93-modules(x86-64)" flags="EQ" epoch="0" ver="3.1.5" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libc.so.6(GLIBC_2.3)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="skytools-93" flags="EQ" epoch="0" ver="3.1.5" rel="1.rhel6"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>skytools-93-debuginfo</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="3.1.5" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">5fed755451b0cbb9e8cf52e6bfdbd44270ccbd1d</checksum>
+  <summary>Debug information for package skytools-93</summary>
+  <description>This package provides debug information for package skytools-93.
+Debug information is useful when developing applications that use this
+package or when debugging this package.</description>
+  <packager></packager>
+  <url>http://pgfoundry.org/projects/skytools</url>
+  <time file="1377010243" build="1377010240"/>
+  <size package="197088" installed="763780" archive="778880"/>
+<location href="skytools-93-debuginfo-3.1.5-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>BSD</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Development/Debug</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>skytools-93-3.1.5-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="12648"/>
+    <rpm:provides>
+      <rpm:entry name="skytools-93-debuginfo" flags="EQ" epoch="0" ver="3.1.5" rel="1.rhel6"/>
+      <rpm:entry name="skytools-93-debuginfo(x86-64)" flags="EQ" epoch="0" ver="3.1.5" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+    </rpm:requires>
+    <file>/usr/lib/debug/usr/bin/pgqd.debug</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>check_postgres</name>
+  <arch>noarch</arch>
+  <version epoch="0" ver="2.20.0" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">2ce800b8d9155f74842ebd83d0101ea662a3f5d7</checksum>
+  <summary>PostgreSQL monitoring script</summary>
+  <description>check_postgres.pl is a script for checking the state of one or more
+Postgres databases and reporting back in a Nagios-friendly manner. It is
+also used for MRTG.</description>
+  <packager></packager>
+  <url>http://bucardo.org/wiki/Check_postgres</url>
+  <time file="1368380555" build="1368380555"/>
+  <size package="146456" installed="561047" archive="562104"/>
+<location href="check_postgres-2.20.0-1.rhel6.noarch.rpm"/>
+  <format>
+    <rpm:license>BSD</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>check_postgres-2.20.0-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="5520"/>
+    <rpm:provides>
+      <rpm:entry name="check_postgres" flags="EQ" epoch="0" ver="2.20.0" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="perl(strict)"/>
+      <rpm:entry name="perl" flags="GE" epoch="0" ver="5.006001"/>
+      <rpm:entry name="perl(File::Temp)"/>
+      <rpm:entry name="perl(Cwd)"/>
+      <rpm:entry name="/usr/bin/env"/>
+      <rpm:entry name="perl(File::Basename)"/>
+      <rpm:entry name="perl(Data::Dumper)"/>
+      <rpm:entry name="perl(Getopt::Long)"/>
+      <rpm:entry name="perl(vars)"/>
+      <rpm:entry name="perl(utf8)"/>
+      <rpm:entry name="perl(warnings)"/>
+    </rpm:requires>
+    <file>/usr/bin/check_postgres.pl</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>geos-python</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="3.3.8" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">6fd6a4b88092101f5d9dce28657387524942c587</checksum>
+  <summary>Python modules for GEOS</summary>
+  <description>Python module to build applications using GEOS and python</description>
+  <packager></packager>
+  <url>http://trac.osgeo.org/geos/</url>
+  <time file="1368388818" build="1368388814"/>
+  <size package="48540" installed="214178" archive="215252"/>
+<location href="geos-python-3.3.8-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>LGPLv2</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Development/Libraries</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>geos-3.3.8-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="5648"/>
+    <rpm:provides>
+      <rpm:entry name="_geos.so()(64bit)"/>
+      <rpm:entry name="geos-python" flags="EQ" epoch="0" ver="3.3.8" rel="1.rhel6"/>
+      <rpm:entry name="geos-python(x86-64)" flags="EQ" epoch="0" ver="3.3.8" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libgcc_s.so.1()(64bit)"/>
+      <rpm:entry name="libstdc++.so.6()(64bit)"/>
+      <rpm:entry name="libgeos_c.so.1()(64bit)"/>
+      <rpm:entry name="libstdc++.so.6(CXXABI_1.3)(64bit)"/>
+      <rpm:entry name="libstdc++.so.6(GLIBCXX_3.4)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="libgcc_s.so.1(GCC_3.0)(64bit)"/>
+      <rpm:entry name="libpython2.6.so.1.0()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="geos" flags="EQ" epoch="0" ver="3.3.8" rel="1.rhel6"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="libgeos-3.3.8.so()(64bit)"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="python(abi)" flags="EQ" epoch="0" ver="2.6"/>
+      <rpm:entry name="libm.so.6()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>postgis2_93-docs</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="2.1.0" rel="3.rhel6"/>
+  <checksum type="sha" pkgid="YES">3115c35eae20db7027a3bcdcee4cd9edb036fe8d</checksum>
+  <summary>Extra documentation for PostGIS</summary>
+  <description>The postgis-docs package includes PDF documentation of PostGIS.</description>
+  <packager></packager>
+  <url>http://postgis.refractions.net/</url>
+  <time file="1379952723" build="1379952719"/>
+  <size package="4265624" installed="7029176" archive="7029620"/>
+<location href="postgis2_93-docs-2.1.0-3.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>GPLv2+</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>postgis2_93-2.1.0-3.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="4408"/>
+    <rpm:provides>
+      <rpm:entry name="postgis2_93-docs" flags="EQ" epoch="0" ver="2.1.0" rel="3.rhel6"/>
+      <rpm:entry name="postgis2_93-docs(x86-64)" flags="EQ" epoch="0" ver="2.1.0" rel="3.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>python-argh</name>
+  <arch>noarch</arch>
+  <version epoch="0" ver="0.15.0" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">66fd88b6644fbd1175aee3e5c05a8e78e7b5a8dd</checksum>
+  <summary>A simple argparse wrapper</summary>
+  <description>Agrh, argparse!
+===============
+
+Did you ever say "argh" trying to remember the details of optparse or argparse
+API? If yes, this package may be useful for you. It provides a very simple
+wrapper for argparse with support for hierarchical commands that can be bound
+to modules or classes. Argparse can do it; argh makes it easy.</description>
+  <packager></packager>
+  <url>http://bitbucket.org/neithere/argh/</url>
+  <time file="1381318975" build="1343394396"/>
+  <size package="29968" installed="96653" archive="101908"/>
+<location href="python-argh-0.15.0-1.rhel6.noarch.rpm"/>
+  <format>
+    <rpm:license>LGPLv3</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Development/Libraries</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg92</rpm:buildhost>
+    <rpm:sourcerpm>python-argh-0.15.0-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="7040"/>
+    <rpm:provides>
+      <rpm:entry name="python-argh" flags="EQ" epoch="0" ver="0.15.0" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="python-abi" flags="EQ" epoch="0" ver="2.6"/>
+      <rpm:entry name="python-argparse"/>
+      <rpm:entry name="python(abi)" flags="EQ" epoch="0" ver="2.6"/>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>slony1-93</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="2.2.0" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">cd8c5a2547f77e1aadf46b2e9314c6d2556fe8b3</checksum>
+  <summary>A "master to multiple slaves" replication system with cascading and failover</summary>
+  <description>Slony-I is a "master to multiple slaves" replication
+system for PostgreSQL with cascading and failover.
+
+The big picture for the development of Slony-I is to build
+a master-slave system that includes all features and
+capabilities needed to replicate large databases to a
+reasonably limited number of slave systems.
+
+Slony-I is a system for data centers and backup
+sites, where the normal mode of operation is that all nodes
+are available</description>
+  <packager></packager>
+  <url>http://main.slony.info/</url>
+  <time file="1378793742" build="1378793740"/>
+  <size package="214920" installed="741227" archive="748272"/>
+<location href="slony1-93-2.2.0-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>BSD</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>slony1-93-2.2.0-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="13564"/>
+    <rpm:provides>
+      <rpm:entry name="config(slony1-93)" flags="EQ" epoch="0" ver="2.2.0" rel="1.rhel6"/>
+      <rpm:entry name="slony1_funcs.2.2.0.so()(64bit)"/>
+      <rpm:entry name="slony1-93" flags="EQ" epoch="0" ver="2.2.0" rel="1.rhel6"/>
+      <rpm:entry name="slony1-93(x86-64)" flags="EQ" epoch="0" ver="2.2.0" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="libpthread.so.0()(64bit)"/>
+      <rpm:entry name="/bin/sh"/>
+      <rpm:entry name="perl(File::Temp)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.7)(64bit)"/>
+      <rpm:entry name="perl(Getopt::Long)"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="libpthread.so.0(GLIBC_2.3.2)(64bit)"/>
+      <rpm:entry name="perl-DBD-Pg"/>
+      <rpm:entry name="perl(DBI)"/>
+      <rpm:entry name="perl(strict)"/>
+      <rpm:entry name="/bin/sh" pre="1"/>
+      <rpm:entry name="/usr/bin/perl"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="perl(Switch)"/>
+      <rpm:entry name="libpthread.so.0(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="postgresql93-server"/>
+      <rpm:entry name="perl(POSIX)"/>
+      <rpm:entry name="perl(Errno)"/>
+      <rpm:entry name="libpq.so.5()(64bit)"/>
+    </rpm:requires>
+    <rpm:conflicts>
+      <rpm:entry name="slony1"/>
+    </rpm:conflicts>
+    <file>/etc/rc.d/init.d/slony1-93</file>
+    <file>/etc/slony1-93/slon.conf</file>
+    <file>/etc/slony1-93/slon_tools.conf</file>
+    <file>/etc/sysconfig/slony1-93</file>
+    <file>/usr/pgsql-9.3/bin/slon</file>
+    <file>/usr/pgsql-9.3/bin/slon_kill</file>
+    <file>/usr/pgsql-9.3/bin/slon_start</file>
+    <file>/usr/pgsql-9.3/bin/slon_status</file>
+    <file>/usr/pgsql-9.3/bin/slon_watchdog</file>
+    <file>/usr/pgsql-9.3/bin/slon_watchdog2</file>
+    <file>/usr/pgsql-9.3/bin/slonik</file>
+    <file>/usr/pgsql-9.3/bin/slonik_add_node</file>
+    <file>/usr/pgsql-9.3/bin/slonik_build_env</file>
+    <file>/usr/pgsql-9.3/bin/slonik_create_set</file>
+    <file>/usr/pgsql-9.3/bin/slonik_drop_node</file>
+    <file>/usr/pgsql-9.3/bin/slonik_drop_sequence</file>
+    <file>/usr/pgsql-9.3/bin/slonik_drop_set</file>
+    <file>/usr/pgsql-9.3/bin/slonik_drop_table</file>
+    <file>/usr/pgsql-9.3/bin/slonik_execute_script</file>
+    <file>/usr/pgsql-9.3/bin/slonik_failover</file>
+    <file>/usr/pgsql-9.3/bin/slonik_init_cluster</file>
+    <file>/usr/pgsql-9.3/bin/slonik_merge_sets</file>
+    <file>/usr/pgsql-9.3/bin/slonik_move_set</file>
+    <file>/usr/pgsql-9.3/bin/slonik_print_preamble</file>
+    <file>/usr/pgsql-9.3/bin/slonik_restart_node</file>
+    <file>/usr/pgsql-9.3/bin/slonik_store_node</file>
+    <file>/usr/pgsql-9.3/bin/slonik_subscribe_set</file>
+    <file>/usr/pgsql-9.3/bin/slonik_uninstall_nodes</file>
+    <file>/usr/pgsql-9.3/bin/slonik_unsubscribe_set</file>
+    <file>/usr/pgsql-9.3/bin/slonik_update_nodes</file>
+    <file>/usr/pgsql-9.3/bin/slony_logshipper</file>
+    <file>/usr/pgsql-9.3/bin/slony_show_configuration</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>geos-python</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="3.4.2" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">58619a8db16877e7466be03ee268c663e3fbf433</checksum>
+  <summary>Python modules for GEOS</summary>
+  <description>Python module to build applications using GEOS and python</description>
+  <packager></packager>
+  <url>http://trac.osgeo.org/geos/</url>
+  <time file="1378766010" build="1378766005"/>
+  <size package="49056" installed="214631" archive="215708"/>
+<location href="geos-python-3.4.2-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>LGPLv2</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Development/Libraries</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>geos-3.4.2-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="6144"/>
+    <rpm:provides>
+      <rpm:entry name="_geos.so()(64bit)"/>
+      <rpm:entry name="geos-python" flags="EQ" epoch="0" ver="3.4.2" rel="1.rhel6"/>
+      <rpm:entry name="geos-python(x86-64)" flags="EQ" epoch="0" ver="3.4.2" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libgeos-3.4.2.so()(64bit)"/>
+      <rpm:entry name="libgcc_s.so.1()(64bit)"/>
+      <rpm:entry name="geos" flags="EQ" epoch="0" ver="3.4.2" rel="1.rhel6"/>
+      <rpm:entry name="libstdc++.so.6()(64bit)"/>
+      <rpm:entry name="libgeos_c.so.1()(64bit)"/>
+      <rpm:entry name="libstdc++.so.6(CXXABI_1.3)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="libgcc_s.so.1(GCC_3.0)(64bit)"/>
+      <rpm:entry name="libpython2.6.so.1.0()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="libstdc++.so.6(GLIBCXX_3.4)(64bit)"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="python(abi)" flags="EQ" epoch="0" ver="2.6"/>
+      <rpm:entry name="libm.so.6()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>postgresql93-plpython</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="9.3.0" rel="1PGDG.rhel6"/>
+  <checksum type="sha" pkgid="YES">7bf098747c05378995d29f71453482749ece58d4</checksum>
+  <summary>The Python procedural language for PostgreSQL</summary>
+  <description>PostgreSQL is an advanced Object-Relational database management
+system. The postgresql93-plpython package contains the PL/Python language
+for the backend.</description>
+  <packager></packager>
+  <url>http://www.postgresql.org/</url>
+  <time file="1378711566" build="1378711536"/>
+  <size package="67432" installed="238927" archive="242128"/>
+<location href="postgresql93-plpython-9.3.0-1PGDG.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>PostgreSQL</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>postgresql93-9.3.0-1PGDG.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="9364"/>
+    <rpm:provides>
+      <rpm:entry name="plpython2.so()(64bit)"/>
+      <rpm:entry name="postgresql-plpython"/>
+      <rpm:entry name="postgresql93-plpython" flags="EQ" epoch="0" ver="9.3.0" rel="1PGDG.rhel6"/>
+      <rpm:entry name="postgresql93-plpython(x86-64)" flags="EQ" epoch="0" ver="9.3.0" rel="1PGDG.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libc.so.6(GLIBC_2.3)(64bit)"/>
+      <rpm:entry name="postgresql93-server" flags="EQ" epoch="0" ver="9.3.0"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="/sbin/ldconfig"/>
+      <rpm:entry name="libpython2.6.so.1.0()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="/sbin/ldconfig" pre="1"/>
+      <rpm:entry name="postgresql93" flags="EQ" epoch="0" ver="9.3.0"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+    </rpm:requires>
+    <rpm:obsoletes>
+      <rpm:entry name="postgresql-pl"/>
+    </rpm:obsoletes>
+  </format>
+</package>
+<package type="rpm">
+  <name>pgmemcache-93-debuginfo</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="2.1.2" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">fd66f718d88fa7ddf31bfbded1960ab1775cdfd4</checksum>
+  <summary>Debug information for package pgmemcache-93</summary>
+  <description>This package provides debug information for package pgmemcache-93.
+Debug information is useful when developing applications that use this
+package or when debugging this package.</description>
+  <packager></packager>
+  <url>http://pgfoundry.org/projects/pgmemcache</url>
+  <time file="1388336666" build="1388336666"/>
+  <size package="39884" installed="123186" archive="125200"/>
+<location href="pgmemcache-93-debuginfo-2.1.2-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>BSD</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Development/Debug</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>pgmemcache-93-2.1.2-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="3484"/>
+    <rpm:provides>
+      <rpm:entry name="pgmemcache-93-debuginfo" flags="EQ" epoch="0" ver="2.1.2" rel="1.rhel6"/>
+      <rpm:entry name="pgmemcache-93-debuginfo(x86-64)" flags="EQ" epoch="0" ver="2.1.2" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>postgis2_93-client</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="2.1.1" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">d67bf7fb4aa06fa6d7669e3593c615c0b8f5cabb</checksum>
+  <summary>Client tools and their libraries of PostGIS</summary>
+  <description>The postgis-client package contains the client tools and their libraries
+of PostGIS.</description>
+  <packager></packager>
+  <url>http://postgis.refractions.net/</url>
+  <time file="1383941075" build="1383941071"/>
+  <size package="125120" installed="340560" archive="341108"/>
+<location href="postgis2_93-client-2.1.1-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>GPLv2+</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>postgis2_93-2.1.1-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="5628"/>
+    <rpm:provides>
+      <rpm:entry name="postgis-client" flags="EQ" epoch="0" ver="2.1.1" rel="1.rhel6"/>
+      <rpm:entry name="postgis2_93-client" flags="EQ" epoch="0" ver="2.1.1" rel="1.rhel6"/>
+      <rpm:entry name="postgis2_93-client(x86-64)" flags="EQ" epoch="0" ver="2.1.1" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libc.so.6(GLIBC_2.3)(64bit)"/>
+      <rpm:entry name="libproj.so.0()(64bit)"/>
+      <rpm:entry name="libgeos_c.so.1()(64bit)"/>
+      <rpm:entry name="libpq.so.5()(64bit)"/>
+      <rpm:entry name="libgdal.so.1()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="liblwgeom-2.1.1.so()(64bit)"/>
+      <rpm:entry name="postgis2_93(x86-64)" flags="EQ" epoch="0" ver="2.1.1" rel="1.rhel6"/>
+      <rpm:entry name="libjson.so.0()(64bit)"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="libm.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libm.so.6()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+    </rpm:requires>
+    <file>/usr/pgsql-9.3/bin/pgsql2shp</file>
+    <file>/usr/pgsql-9.3/bin/raster2pgsql</file>
+    <file>/usr/pgsql-9.3/bin/shp2pgsql</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>barman</name>
+  <arch>noarch</arch>
+  <version epoch="0" ver="1.2.3" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">67d608337cb54b0888c43b4dd63061d1f7037330</checksum>
+  <summary>Backup and Recovery Manager for PostgreSQL</summary>
+  <description>Barman (backup and recovery manager) is an administration
+tool for disaster recovery of PostgreSQL servers written in Python.
+It allows to perform remote backups of multiple servers
+in business critical environments and help DBAs during the recovery phase.
+Barman's most wanted features include backup catalogs, retention policies,
+remote recovery, archiving and compression of WAL files and backups.
+Barman is written and maintained by PostgreSQL professionals 2ndQuadrant.</description>
+  <packager></packager>
+  <url>http://www.pgbarman.org/</url>
+  <time file="1378792376" build="1378792376"/>
+  <size package="89652" installed="321606" archive="330444"/>
+<location href="barman-1.2.3-1.rhel6.noarch.rpm"/>
+  <format>
+    <rpm:license>GPLv3</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>barman-1.2.3-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="12092"/>
+    <rpm:provides>
+      <rpm:entry name="config(barman)" flags="EQ" epoch="0" ver="1.2.3" rel="1.rhel6"/>
+      <rpm:entry name="barman" flags="EQ" epoch="0" ver="1.2.3" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="python-dateutil"/>
+      <rpm:entry name="/usr/sbin/useradd"/>
+      <rpm:entry name="/usr/bin/python"/>
+      <rpm:entry name="python-argcomplete"/>
+      <rpm:entry name="/bin/sh" pre="1"/>
+      <rpm:entry name="python-argh" flags="GE" epoch="0" ver="0.21.2"/>
+      <rpm:entry name="python-psycopg2"/>
+      <rpm:entry name="python-abi" flags="EQ" epoch="0" ver="2.6"/>
+      <rpm:entry name="python(abi)" flags="EQ" epoch="0" ver="2.6"/>
+    </rpm:requires>
+    <file>/etc/barman.conf</file>
+    <file>/etc/bash_completion.d/barman</file>
+    <file>/etc/cron.d/barman</file>
+    <file>/etc/logrotate.d/barman</file>
+    <file>/usr/bin/barman</file>
+    <file type="dir">/etc/bash_completion.d</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>pgpool-II-93</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="3.3.0" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">daf9799def4de484c61c3066d0985e85c834e405</checksum>
+  <summary>Pgpool is a connection pooling/replication server for PostgreSQL</summary>
+  <description>pgpool-II is a inherited project of pgpool (to classify from
+pgpool-II, it is sometimes called as pgpool-I). For those of
+you not familiar with pgpool-I, it is a multi-functional
+middle ware for PostgreSQL that features connection pooling,
+replication and load balancing functions. pgpool-I allows a
+user to connect at most two PostgreSQL servers for higher
+availability or for higher search performance compared to a
+single PostgreSQL server.
+
+pgpool-II, on the other hand, allows multiple PostgreSQL
+servers (DB nodes) to be connected, which enables queries
+to be executed simultaneously on all servers. In other words,
+it enables "parallel query" processing. Also, pgpool-II can
+be started as pgpool-I by changing configuration parameters.
+pgpool-II that is executed in pgpool-I mode enables multiple
+DB nodes to be connected, which was not possible in pgpool-I.</description>
+  <packager></packager>
+  <url>http://www.pgpool.net</url>
+  <time file="1376943731" build="1376943723"/>
+  <size package="383736" installed="1431827" archive="1436340"/>
+<location href="pgpool-II-93-3.3.0-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>BSD</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>pgpool-II-93-3.3.0-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="14180"/>
+    <rpm:provides>
+      <rpm:entry name="libpcp.so.0()(64bit)"/>
+      <rpm:entry name="pgpool-II-93" flags="EQ" epoch="0" ver="3.3.0" rel="1.rhel6"/>
+      <rpm:entry name="pgpool-II-93(x86-64)" flags="EQ" epoch="0" ver="3.3.0" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="/usr/sbin/update-alternatives"/>
+      <rpm:entry name="libcrypto.so.10()(64bit)"/>
+      <rpm:entry name="libpthread.so.0()(64bit)"/>
+      <rpm:entry name="libnsl.so.1()(64bit)"/>
+      <rpm:entry name="libpam.so.0()(64bit)"/>
+      <rpm:entry name="libm.so.6()(64bit)"/>
+      <rpm:entry name="/bin/sh"/>
+      <rpm:entry name="/usr/sbin/update-alternatives" pre="1"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="libcrypt.so.1(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libcrypt.so.1()(64bit)"/>
+      <rpm:entry name="libssl.so.10()(64bit)"/>
+      <rpm:entry name="libpam.so.0(LIBPAM_1.0)(64bit)"/>
+      <rpm:entry name="libresolv.so.2()(64bit)"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="libpthread.so.0(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="/bin/sh" pre="1"/>
+      <rpm:entry name="libpq.so.5()(64bit)"/>
+    </rpm:requires>
+    <rpm:obsoletes>
+      <rpm:entry name="postgresql-pgpool"/>
+    </rpm:obsoletes>
+    <file>/etc/pgpool-II-93/pcp.conf.sample</file>
+    <file>/etc/pgpool-II-93/pgpool.conf.sample</file>
+    <file>/etc/pgpool-II-93/pgpool.conf.sample-master-slave</file>
+    <file>/etc/pgpool-II-93/pgpool.conf.sample-replication</file>
+    <file>/etc/pgpool-II-93/pgpool.conf.sample-stream</file>
+    <file>/etc/pgpool-II-93/pool_hba.conf.sample</file>
+    <file>/etc/rc.d/init.d/pgpool-II-93</file>
+    <file>/etc/sysconfig/pgpool-II-93</file>
+    <file>/usr/pgpool-9.3/bin/pcp_attach_node</file>
+    <file>/usr/pgpool-9.3/bin/pcp_detach_node</file>
+    <file>/usr/pgpool-9.3/bin/pcp_node_count</file>
+    <file>/usr/pgpool-9.3/bin/pcp_node_info</file>
+    <file>/usr/pgpool-9.3/bin/pcp_pool_status</file>
+    <file>/usr/pgpool-9.3/bin/pcp_proc_count</file>
+    <file>/usr/pgpool-9.3/bin/pcp_proc_info</file>
+    <file>/usr/pgpool-9.3/bin/pcp_promote_node</file>
+    <file>/usr/pgpool-9.3/bin/pcp_recovery_node</file>
+    <file>/usr/pgpool-9.3/bin/pcp_stop_pgpool</file>
+    <file>/usr/pgpool-9.3/bin/pcp_systemdb_info</file>
+    <file>/usr/pgpool-9.3/bin/pcp_watchdog_info</file>
+    <file>/usr/pgpool-9.3/bin/pg_md5</file>
+    <file>/usr/pgpool-9.3/bin/pgpool</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>pgadmin3_93-debuginfo</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="1.18.0" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">ad1ffbe8da2d5ce83207248b8851760d271b3c7f</checksum>
+  <summary>Debug information for package pgadmin3_93</summary>
+  <description>This package provides debug information for package pgadmin3_93.
+Debug information is useful when developing applications that use this
+package or when debugging this package.</description>
+  <packager></packager>
+  <url>http://www.pgadmin.org/</url>
+  <time file="1377867211" build="1377867207"/>
+  <size package="264032" installed="1162920" archive="1164464"/>
+<location href="pgadmin3_93-debuginfo-1.18.0-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>BSD</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Development/Debug</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>pgadmin3_93-1.18.0-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="4932"/>
+    <rpm:provides>
+      <rpm:entry name="pgadmin3_93-debuginfo" flags="EQ" epoch="0" ver="1.18.0" rel="1.rhel6"/>
+      <rpm:entry name="pgadmin3_93-debuginfo(x86-64)" flags="EQ" epoch="0" ver="1.18.0" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+    </rpm:requires>
+    <file>/usr/lib/debug/usr/pgsql-9.3/bin/pgadmin3.debug</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>pgadmin3_93-docs</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="1.18.0" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">a11b16b7caab89a1156f6987b53ecf43645c5888</checksum>
+  <summary>Documentation for pgAdmin3</summary>
+  <description>This package contains documentation for various languages,
+which are in html format.</description>
+  <packager></packager>
+  <url>http://www.pgadmin.org/</url>
+  <time file="1377867211" build="1377867207"/>
+  <size package="1718996" installed="2221742" archive="2274252"/>
+<location href="pgadmin3_93-docs-1.18.0-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>BSD</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>pgadmin3_93-1.18.0-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="47820"/>
+    <rpm:provides>
+      <rpm:entry name="pgadmin3_93-docs" flags="EQ" epoch="0" ver="1.18.0" rel="1.rhel6"/>
+      <rpm:entry name="pgadmin3_93-docs(x86-64)" flags="EQ" epoch="0" ver="1.18.0" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="pgadmin3_93" flags="EQ" epoch="0" ver="1.18.0"/>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>postgresql93-devel</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+  <checksum type="sha" pkgid="YES">136cfaa3436dfaf9f2881b05e1766ddec35e036f</checksum>
+  <summary>PostgreSQL development header files and libraries</summary>
+  <description>The postgresql93-devel package contains the header files and libraries
+needed to compile C or C++ applications which will directly interact
+with a PostgreSQL database management server and the ecpg Embedded C
+Postgres preprocessor. You need to install this package if you want to
+develop applications which will interact with a PostgreSQL server.</description>
+  <packager></packager>
+  <url>http://www.postgresql.org/</url>
+  <time file="1381310384" build="1381310360"/>
+  <size package="1541256" installed="7004474" archive="7111584"/>
+<location href="postgresql93-devel-9.3.1-1PGDG.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>PostgreSQL</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Development/Libraries</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>postgresql93-9.3.1-1PGDG.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="96872"/>
+    <rpm:provides>
+      <rpm:entry name="pkgconfig(libecpg)" flags="EQ" epoch="0" ver="9.3.1"/>
+      <rpm:entry name="pkgconfig(libecpg_compat)" flags="EQ" epoch="0" ver="9.3.1"/>
+      <rpm:entry name="pkgconfig(libpgtypes)" flags="EQ" epoch="0" ver="9.3.1"/>
+      <rpm:entry name="pkgconfig(libpq)" flags="EQ" epoch="0" ver="9.3.1"/>
+      <rpm:entry name="postgresql-devel"/>
+      <rpm:entry name="postgresql93-devel" flags="EQ" epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+      <rpm:entry name="postgresql93-devel(x86-64)" flags="EQ" epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="libpthread.so.0()(64bit)"/>
+      <rpm:entry name="libecpg_compat.so.3()(64bit)"/>
+      <rpm:entry name="/bin/sh"/>
+      <rpm:entry name="libecpg.so.6()(64bit)"/>
+      <rpm:entry name="/usr/bin/pkg-config"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="libpgtypes.so.3()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="postgresql93" flags="EQ" epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="libpthread.so.0(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.3)(64bit)"/>
+      <rpm:entry name="libpq.so.5()(64bit)"/>
+    </rpm:requires>
+    <file>/usr/pgsql-9.3/bin/ecpg</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>barman</name>
+  <arch>noarch</arch>
+  <version epoch="0" ver="1.2.1" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">1b0f224695038061d1406caa2381a23d3d60ff7c</checksum>
+  <summary>Backup and Recovery Manager for PostgreSQL</summary>
+  <description>Barman (backup and recovery manager) is an administration
+tool for disaster recovery of PostgreSQL servers written in Python.
+It allows to perform remote backups of multiple servers
+in business critical environments and help DBAs during the recovery phase.
+Barman's most wanted features include backup catalogs, retention policies,
+remote recovery, archiving and compression of WAL files and backups.
+Barman is written and maintained by PostgreSQL professionals 2ndQuadrant.</description>
+  <packager></packager>
+  <url>http://www.pgbarman.org/</url>
+  <time file="1371682108" build="1371682107"/>
+  <size package="81928" installed="297825" archive="308032"/>
+<location href="barman-1.2.1-1.rhel6.noarch.rpm"/>
+  <format>
+    <rpm:license>GPLv3</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>barman-1.2.1-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="12896"/>
+    <rpm:provides>
+      <rpm:entry name="config(barman)" flags="EQ" epoch="0" ver="1.2.1" rel="1.rhel6"/>
+      <rpm:entry name="barman" flags="EQ" epoch="0" ver="1.2.1" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="python-dateutil"/>
+      <rpm:entry name="/usr/sbin/useradd"/>
+      <rpm:entry name="/usr/bin/python"/>
+      <rpm:entry name="python-argcomplete"/>
+      <rpm:entry name="/bin/sh" pre="1"/>
+      <rpm:entry name="python-argh" flags="GE" epoch="0" ver="0.21.2"/>
+      <rpm:entry name="python-psycopg2"/>
+      <rpm:entry name="python-abi" flags="EQ" epoch="0" ver="2.6"/>
+      <rpm:entry name="python(abi)" flags="EQ" epoch="0" ver="2.6"/>
+    </rpm:requires>
+    <file>/etc/barman.conf</file>
+    <file>/etc/bash_completion.d/barman</file>
+    <file>/etc/cron.d/barman</file>
+    <file>/etc/logrotate.d/barman</file>
+    <file>/usr/bin/barman</file>
+    <file type="dir">/etc/bash_completion.d</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>pg_activity</name>
+  <arch>noarch</arch>
+  <version epoch="0" ver="0.2.0" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">3d5257cdccbc7808cdfc971fe0c7147525c9ede0</checksum>
+  <summary>htop like application for PostgreSQL server activity monitoring</summary>
+  <description>htop like application for PostgreSQL server activity monitoring.</description>
+  <packager></packager>
+  <url>http://www.pgbarman.org/</url>
+  <time file="1368386653" build="1368386653"/>
+  <size package="15176" installed="35613" archive="37176"/>
+<location href="pg_activity-0.2.0-1.rhel6.noarch.rpm"/>
+  <format>
+    <rpm:license>GPLv3</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>pg_activity-0.2.0-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="3580"/>
+    <rpm:provides>
+      <rpm:entry name="pg_activity" flags="EQ" epoch="0" ver="0.2.0" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="python-psutil" flags="GE" epoch="0" ver="0.4.1"/>
+      <rpm:entry name="/usr/bin/python"/>
+      <rpm:entry name="python-psycopg2" flags="GT" epoch="0" ver="2.2.1"/>
+      <rpm:entry name="python(abi)" flags="EQ" epoch="0" ver="2.6"/>
+      <rpm:entry name="python" flags="GT" epoch="0" ver="2.6"/>
+    </rpm:requires>
+    <file>/usr/bin/pg_activity</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>proj-epsg</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="4.8.0" rel="2.rhel6"/>
+  <checksum type="sha" pkgid="YES">f999371143052fdcfb1969abd8b50d3638a06d3a</checksum>
+  <summary>EPSG dataset for PROJ.4</summary>
+  <description>This package contains additional EPSG dataset.</description>
+  <packager></packager>
+  <url>http://trac.osgeo.org/proj</url>
+  <time file="1368384793" build="1368384790"/>
+  <size package="58996" installed="651113" archive="651668"/>
+<location href="proj-epsg-4.8.0-2.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>MIT</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Engineering</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>proj-4.8.0-2.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="2928"/>
+    <rpm:provides>
+      <rpm:entry name="proj-epsg" flags="EQ" epoch="0" ver="4.8.0" rel="2.rhel6"/>
+      <rpm:entry name="proj-epsg(x86-64)" flags="EQ" epoch="0" ver="4.8.0" rel="2.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="proj" flags="EQ" epoch="0" ver="4.8.0" rel="2.rhel6"/>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>postgresql93-plperl</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+  <checksum type="sha" pkgid="YES">2cf6737da9cd215539c17a39202f6ec017a3dc35</checksum>
+  <summary>The Perl procedural language for PostgreSQL</summary>
+  <description>PostgreSQL is an advanced Object-Relational database management
+system. The postgresql93-plperl package contains the PL/Perl language
+for the backend.</description>
+  <packager></packager>
+  <url>http://www.postgresql.org/</url>
+  <time file="1381310384" build="1381310360"/>
+  <size package="56108" installed="161119" archive="164588"/>
+<location href="postgresql93-plperl-9.3.1-1PGDG.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>PostgreSQL</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>postgresql93-9.3.1-1PGDG.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="9972"/>
+    <rpm:provides>
+      <rpm:entry name="plperl.so()(64bit)"/>
+      <rpm:entry name="postgresql-plperl"/>
+      <rpm:entry name="postgresql93-plperl" flags="EQ" epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+      <rpm:entry name="postgresql93-plperl(x86-64)" flags="EQ" epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libc.so.6(GLIBC_2.3)(64bit)"/>
+      <rpm:entry name="libperl.so()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="/sbin/ldconfig"/>
+      <rpm:entry name="libpthread.so.0()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="postgresql93-server" flags="EQ" epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+      <rpm:entry name="libpthread.so.0(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="/sbin/ldconfig" pre="1"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+    </rpm:requires>
+    <rpm:obsoletes>
+      <rpm:entry name="postgresql-pl"/>
+    </rpm:obsoletes>
+  </format>
+</package>
+<package type="rpm">
+  <name>postgresql93-contrib</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+  <checksum type="sha" pkgid="YES">27df4a337048b59583f8df824fd337cc80774de2</checksum>
+  <summary>Contributed source and binaries distributed with PostgreSQL</summary>
+  <description>The postgresql93-contrib package contains contributed packages that are
+included in the PostgreSQL distribution.</description>
+  <packager></packager>
+  <url>http://www.postgresql.org/</url>
+  <time file="1381310381" build="1381310360"/>
+  <size package="492988" installed="1795718" archive="1825712"/>
+<location href="postgresql93-contrib-9.3.1-1PGDG.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>PostgreSQL</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>postgresql93-9.3.1-1PGDG.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="36068"/>
+    <rpm:provides>
+      <rpm:entry name="_int.so()(64bit)"/>
+      <rpm:entry name="adminpack.so()(64bit)"/>
+      <rpm:entry name="auth_delay.so()(64bit)"/>
+      <rpm:entry name="auto_explain.so()(64bit)"/>
+      <rpm:entry name="autoinc.so()(64bit)"/>
+      <rpm:entry name="btree_gin.so()(64bit)"/>
+      <rpm:entry name="btree_gist.so()(64bit)"/>
+      <rpm:entry name="chkpass.so()(64bit)"/>
+      <rpm:entry name="citext.so()(64bit)"/>
+      <rpm:entry name="cube.so()(64bit)"/>
+      <rpm:entry name="dblink.so()(64bit)"/>
+      <rpm:entry name="dummy_seclabel.so()(64bit)"/>
+      <rpm:entry name="earthdistance.so()(64bit)"/>
+      <rpm:entry name="file_fdw.so()(64bit)"/>
+      <rpm:entry name="fuzzystrmatch.so()(64bit)"/>
+      <rpm:entry name="hstore.so()(64bit)"/>
+      <rpm:entry name="insert_username.so()(64bit)"/>
+      <rpm:entry name="isn.so()(64bit)"/>
+      <rpm:entry name="lo.so()(64bit)"/>
+      <rpm:entry name="ltree.so()(64bit)"/>
+      <rpm:entry name="moddatetime.so()(64bit)"/>
+      <rpm:entry name="pageinspect.so()(64bit)"/>
+      <rpm:entry name="passwordcheck.so()(64bit)"/>
+      <rpm:entry name="pg_buffercache.so()(64bit)"/>
+      <rpm:entry name="pg_freespacemap.so()(64bit)"/>
+      <rpm:entry name="pg_stat_statements.so()(64bit)"/>
+      <rpm:entry name="pg_trgm.so()(64bit)"/>
+      <rpm:entry name="pg_upgrade_support.so()(64bit)"/>
+      <rpm:entry name="pgcrypto.so()(64bit)"/>
+      <rpm:entry name="pgrowlocks.so()(64bit)"/>
+      <rpm:entry name="pgstattuple.so()(64bit)"/>
+      <rpm:entry name="pgxml.so()(64bit)"/>
+      <rpm:entry name="postgres_fdw.so()(64bit)"/>
+      <rpm:entry name="postgresql-contrib"/>
+      <rpm:entry name="refint.so()(64bit)"/>
+      <rpm:entry name="seg.so()(64bit)"/>
+      <rpm:entry name="sslinfo.so()(64bit)"/>
+      <rpm:entry name="tablefunc.so()(64bit)"/>
+      <rpm:entry name="tcn.so()(64bit)"/>
+      <rpm:entry name="timetravel.so()(64bit)"/>
+      <rpm:entry name="unaccent.so()(64bit)"/>
+      <rpm:entry name="uuid-ossp.so()(64bit)"/>
+      <rpm:entry name="worker_spi.so()(64bit)"/>
+      <rpm:entry name="postgresql93-contrib" flags="EQ" epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+      <rpm:entry name="postgresql93-contrib(x86-64)" flags="EQ" epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libxslt.so.1(LIBXML2_1.0.18)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="libpthread.so.0()(64bit)"/>
+      <rpm:entry name="libxslt.so.1(LIBXML2_1.0.22)(64bit)"/>
+      <rpm:entry name="libcrypto.so.10()(64bit)"/>
+      <rpm:entry name="libm.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libm.so.6()(64bit)"/>
+      <rpm:entry name="libxml2.so.2(LIBXML2_2.4.30)(64bit)"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="libxml2.so.2()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libxslt.so.1(LIBXML2_1.0.11)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3)(64bit)"/>
+      <rpm:entry name="libossp-uuid.so.16()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="postgresql93" flags="EQ" epoch="0" ver="9.3.1"/>
+      <rpm:entry name="libxslt.so.1()(64bit)"/>
+      <rpm:entry name="libcrypt.so.1(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libcrypt.so.1()(64bit)"/>
+      <rpm:entry name="libssl.so.10()(64bit)"/>
+      <rpm:entry name="libz.so.1()(64bit)"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="libpthread.so.0(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.3)(64bit)"/>
+      <rpm:entry name="libpq.so.5()(64bit)"/>
+    </rpm:requires>
+    <file>/usr/pgsql-9.3/bin/oid2name</file>
+    <file>/usr/pgsql-9.3/bin/pg_archivecleanup</file>
+    <file>/usr/pgsql-9.3/bin/pg_standby</file>
+    <file>/usr/pgsql-9.3/bin/pg_test_timing</file>
+    <file>/usr/pgsql-9.3/bin/pg_upgrade</file>
+    <file>/usr/pgsql-9.3/bin/pg_xlogdump</file>
+    <file>/usr/pgsql-9.3/bin/pgbench</file>
+    <file>/usr/pgsql-9.3/bin/vacuumlo</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>slony1-93</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="2.2.1" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">22cb832720ec8f6610771ca2f6a2099d24c845eb</checksum>
+  <summary>A "master to multiple slaves" replication system with cascading and failover</summary>
+  <description>Slony-I is a "master to multiple slaves" replication
+system for PostgreSQL with cascading and failover.
+
+The big picture for the development of Slony-I is to build
+a master-slave system that includes all features and
+capabilities needed to replicate large databases to a
+reasonably limited number of slave systems.
+
+Slony-I is a system for data centers and backup
+sites, where the normal mode of operation is that all nodes
+are available</description>
+  <packager></packager>
+  <url>http://main.slony.info/</url>
+  <time file="1383940389" build="1383940388"/>
+  <size package="215440" installed="747163" archive="754212"/>
+<location href="slony1-93-2.2.1-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>BSD</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>slony1-93-2.2.1-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="13628"/>
+    <rpm:provides>
+      <rpm:entry name="config(slony1-93)" flags="EQ" epoch="0" ver="2.2.1" rel="1.rhel6"/>
+      <rpm:entry name="slony1_funcs.2.2.1.so()(64bit)"/>
+      <rpm:entry name="slony1-93" flags="EQ" epoch="0" ver="2.2.1" rel="1.rhel6"/>
+      <rpm:entry name="slony1-93(x86-64)" flags="EQ" epoch="0" ver="2.2.1" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="libpthread.so.0()(64bit)"/>
+      <rpm:entry name="/bin/sh"/>
+      <rpm:entry name="perl(File::Temp)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.7)(64bit)"/>
+      <rpm:entry name="perl(Getopt::Long)"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="libpthread.so.0(GLIBC_2.3.2)(64bit)"/>
+      <rpm:entry name="perl-DBD-Pg"/>
+      <rpm:entry name="perl(DBI)"/>
+      <rpm:entry name="perl(strict)"/>
+      <rpm:entry name="/bin/sh" pre="1"/>
+      <rpm:entry name="/usr/bin/perl"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="perl(Switch)"/>
+      <rpm:entry name="libpthread.so.0(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="postgresql93-server"/>
+      <rpm:entry name="perl(POSIX)"/>
+      <rpm:entry name="perl(Errno)"/>
+      <rpm:entry name="libpq.so.5()(64bit)"/>
+    </rpm:requires>
+    <rpm:conflicts>
+      <rpm:entry name="slony1"/>
+    </rpm:conflicts>
+    <file>/etc/rc.d/init.d/slony1-93</file>
+    <file>/etc/slony1-93/slon.conf</file>
+    <file>/etc/slony1-93/slon_tools.conf</file>
+    <file>/etc/sysconfig/slony1-93</file>
+    <file>/usr/pgsql-9.3/bin/slon</file>
+    <file>/usr/pgsql-9.3/bin/slon_kill</file>
+    <file>/usr/pgsql-9.3/bin/slon_start</file>
+    <file>/usr/pgsql-9.3/bin/slon_status</file>
+    <file>/usr/pgsql-9.3/bin/slon_watchdog</file>
+    <file>/usr/pgsql-9.3/bin/slon_watchdog2</file>
+    <file>/usr/pgsql-9.3/bin/slonik</file>
+    <file>/usr/pgsql-9.3/bin/slonik_add_node</file>
+    <file>/usr/pgsql-9.3/bin/slonik_build_env</file>
+    <file>/usr/pgsql-9.3/bin/slonik_create_set</file>
+    <file>/usr/pgsql-9.3/bin/slonik_drop_node</file>
+    <file>/usr/pgsql-9.3/bin/slonik_drop_sequence</file>
+    <file>/usr/pgsql-9.3/bin/slonik_drop_set</file>
+    <file>/usr/pgsql-9.3/bin/slonik_drop_table</file>
+    <file>/usr/pgsql-9.3/bin/slonik_execute_script</file>
+    <file>/usr/pgsql-9.3/bin/slonik_failover</file>
+    <file>/usr/pgsql-9.3/bin/slonik_init_cluster</file>
+    <file>/usr/pgsql-9.3/bin/slonik_merge_sets</file>
+    <file>/usr/pgsql-9.3/bin/slonik_move_set</file>
+    <file>/usr/pgsql-9.3/bin/slonik_print_preamble</file>
+    <file>/usr/pgsql-9.3/bin/slonik_restart_node</file>
+    <file>/usr/pgsql-9.3/bin/slonik_store_node</file>
+    <file>/usr/pgsql-9.3/bin/slonik_subscribe_set</file>
+    <file>/usr/pgsql-9.3/bin/slonik_uninstall_nodes</file>
+    <file>/usr/pgsql-9.3/bin/slonik_unsubscribe_set</file>
+    <file>/usr/pgsql-9.3/bin/slonik_update_nodes</file>
+    <file>/usr/pgsql-9.3/bin/slony_logshipper</file>
+    <file>/usr/pgsql-9.3/bin/slony_show_configuration</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>postgresql93</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="9.3.2" rel="1PGDG.rhel6"/>
+  <checksum type="sha" pkgid="YES">b82a2488669eb15e8fc14eb6bcfe2d6422ea1734</checksum>
+  <summary>PostgreSQL client programs and libraries</summary>
+  <description>PostgreSQL is an advanced Object-Relational database management system
+(DBMS) that supports almost all SQL constructs (including
+transactions, subselects and user-defined types and functions). The
+postgresql package includes the client programs and libraries that
+you'll need to access a PostgreSQL DBMS server.  These PostgreSQL
+client programs are programs that directly manipulate the internal
+structure of PostgreSQL databases on a PostgreSQL server. These client
+programs can be located on the same machine with the PostgreSQL
+server, or may be on a remote machine which accesses a PostgreSQL
+server over a network connection. This package contains the command-line
+utilities for managing PostgreSQL databases on a PostgreSQL server.
+
+If you want to manipulate a PostgreSQL database on a local or remote PostgreSQL
+server, you need this package. You also need to install this package
+if you're installing the postgresql93-server package.</description>
+  <packager></packager>
+  <url>http://www.postgresql.org/</url>
+  <time file="1386185241" build="1386185220"/>
+  <size package="1039324" installed="5420222" archive="5473272"/>
+<location href="postgresql93-9.3.2-1PGDG.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>PostgreSQL</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>postgresql93-9.3.2-1PGDG.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="61288"/>
+    <rpm:provides>
+      <rpm:entry name="postgresql"/>
+      <rpm:entry name="postgresql93" flags="EQ" epoch="0" ver="9.3.2" rel="1PGDG.rhel6"/>
+      <rpm:entry name="postgresql93(x86-64)" flags="EQ" epoch="0" ver="9.3.2" rel="1PGDG.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="/usr/sbin/update-alternatives"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.11)(64bit)"/>
+      <rpm:entry name="libreadline.so.6()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="/bin/sh"/>
+      <rpm:entry name="libssl.so.10(libssl.so.10)(64bit)"/>
+      <rpm:entry name="/usr/sbin/update-alternatives" pre="1"/>
+      <rpm:entry name="postgresql93-libs" flags="EQ" epoch="0" ver="9.3.2" rel="1PGDG.rhel6"/>
+      <rpm:entry name="initscripts"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3)(64bit)"/>
+      <rpm:entry name="/sbin/ldconfig"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="libssl.so.10()(64bit)"/>
+      <rpm:entry name="libz.so.1()(64bit)"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="/bin/sh" pre="1"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.3)(64bit)"/>
+      <rpm:entry name="libpq.so.5()(64bit)"/>
+    </rpm:requires>
+    <file>/usr/pgsql-9.3/bin/clusterdb</file>
+    <file>/usr/pgsql-9.3/bin/createdb</file>
+    <file>/usr/pgsql-9.3/bin/createlang</file>
+    <file>/usr/pgsql-9.3/bin/createuser</file>
+    <file>/usr/pgsql-9.3/bin/dropdb</file>
+    <file>/usr/pgsql-9.3/bin/droplang</file>
+    <file>/usr/pgsql-9.3/bin/dropuser</file>
+    <file>/usr/pgsql-9.3/bin/pg_basebackup</file>
+    <file>/usr/pgsql-9.3/bin/pg_config</file>
+    <file>/usr/pgsql-9.3/bin/pg_dump</file>
+    <file>/usr/pgsql-9.3/bin/pg_dumpall</file>
+    <file>/usr/pgsql-9.3/bin/pg_isready</file>
+    <file>/usr/pgsql-9.3/bin/pg_receivexlog</file>
+    <file>/usr/pgsql-9.3/bin/pg_restore</file>
+    <file>/usr/pgsql-9.3/bin/pg_test_fsync</file>
+    <file>/usr/pgsql-9.3/bin/psql</file>
+    <file>/usr/pgsql-9.3/bin/reindexdb</file>
+    <file>/usr/pgsql-9.3/bin/vacuumdb</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>pgpool-II-93-debuginfo</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="3.3.1" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">57cfb0717f0fe33bd53242fb9c79cd0945cf3e6d</checksum>
+  <summary>Debug information for package pgpool-II-93</summary>
+  <description>This package provides debug information for package pgpool-II-93.
+Debug information is useful when developing applications that use this
+package or when debugging this package.</description>
+  <packager></packager>
+  <url>http://www.pgpool.net</url>
+  <time file="1384255247" build="1384255245"/>
+  <size package="1377328" installed="7640161" archive="7675244"/>
+<location href="pgpool-II-93-debuginfo-3.3.1-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>BSD</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Development/Debug</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>pgpool-II-93-3.3.1-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="28716"/>
+    <rpm:provides>
+      <rpm:entry name="pgpool-II-93-debuginfo" flags="EQ" epoch="0" ver="3.3.1" rel="1.rhel6"/>
+      <rpm:entry name="pgpool-II-93-debuginfo(x86-64)" flags="EQ" epoch="0" ver="3.3.1" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+    </rpm:requires>
+    <file>/usr/lib/debug/usr/pgpool-9.3/bin/pcp_attach_node.debug</file>
+    <file>/usr/lib/debug/usr/pgpool-9.3/bin/pcp_detach_node.debug</file>
+    <file>/usr/lib/debug/usr/pgpool-9.3/bin/pcp_node_count.debug</file>
+    <file>/usr/lib/debug/usr/pgpool-9.3/bin/pcp_node_info.debug</file>
+    <file>/usr/lib/debug/usr/pgpool-9.3/bin/pcp_pool_status.debug</file>
+    <file>/usr/lib/debug/usr/pgpool-9.3/bin/pcp_proc_count.debug</file>
+    <file>/usr/lib/debug/usr/pgpool-9.3/bin/pcp_proc_info.debug</file>
+    <file>/usr/lib/debug/usr/pgpool-9.3/bin/pcp_promote_node.debug</file>
+    <file>/usr/lib/debug/usr/pgpool-9.3/bin/pcp_recovery_node.debug</file>
+    <file>/usr/lib/debug/usr/pgpool-9.3/bin/pcp_stop_pgpool.debug</file>
+    <file>/usr/lib/debug/usr/pgpool-9.3/bin/pcp_systemdb_info.debug</file>
+    <file>/usr/lib/debug/usr/pgpool-9.3/bin/pcp_watchdog_info.debug</file>
+    <file>/usr/lib/debug/usr/pgpool-9.3/bin/pg_md5.debug</file>
+    <file>/usr/lib/debug/usr/pgpool-9.3/bin/pgpool.debug</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>pg_comparator93</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="2.1.2" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">2a43321cad48b561c9e87fddce7afa765af86efa</checksum>
+  <summary>Efficient table content comparison and synchronization for PostgreSQL and MySQL</summary>
+  <description>pg_comparator is a tool to compare possibly very big tables in
+different locations and report differences, with a network and
+time-efficient approach.</description>
+  <packager></packager>
+  <url>http://pgfoundry.org/projects/pg-comparator</url>
+  <time file="1368385854" build="1368385854"/>
+  <size package="41480" installed="118312" archive="120008"/>
+<location href="pg_comparator93-2.1.2-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>BSD</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>pg_comparator93-2.1.2-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="4968"/>
+    <rpm:provides>
+      <rpm:entry name="pgc_casts.so()(64bit)"/>
+      <rpm:entry name="pgc_checksum.so()(64bit)"/>
+      <rpm:entry name="pg_comparator93" flags="EQ" epoch="0" ver="2.1.2" rel="1.rhel6"/>
+      <rpm:entry name="pg_comparator93(x86-64)" flags="EQ" epoch="0" ver="2.1.2" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="perl(DBI)"/>
+      <rpm:entry name="perl(strict)"/>
+      <rpm:entry name="postgresql93-server"/>
+      <rpm:entry name="perl(warnings)"/>
+      <rpm:entry name="/bin/sh"/>
+      <rpm:entry name="/usr/bin/perl"/>
+      <rpm:entry name="perl(Getopt::Long)"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="perl(Time::HiRes)"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="/bin/sh" pre="1"/>
+      <rpm:entry name="perl(DBD::Pg)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+    </rpm:requires>
+    <file>/usr/pgsql-9.3/bin/pg_comparator</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>ip4r93-debuginfo</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="1.05" rel="3.rhel6"/>
+  <checksum type="sha" pkgid="YES">e76c7c4246e475cec0e5b0bdeb4f99ab4b0bab5e</checksum>
+  <summary>Debug information for package ip4r93</summary>
+  <description>This package provides debug information for package ip4r93.
+Debug information is useful when developing applications that use this
+package or when debugging this package.</description>
+  <packager></packager>
+  <url>http://pgfoundry.org/projects/ip4r</url>
+  <time file="1379321684" build="1379321684"/>
+  <size package="40656" installed="144929" archive="146756"/>
+<location href="ip4r93-debuginfo-1.05-3.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>BSD</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Development/Debug</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>ip4r93-1.05-3.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="3720"/>
+    <rpm:provides>
+      <rpm:entry name="ip4r93-debuginfo" flags="EQ" epoch="0" ver="1.05" rel="3.rhel6"/>
+      <rpm:entry name="ip4r93-debuginfo(x86-64)" flags="EQ" epoch="0" ver="1.05" rel="3.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>geos</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="3.4.2" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">219a04332191fbfe59a8c88c0e7685101dfe4106</checksum>
+  <summary>GEOS is a C++ port of the Java Topology Suite</summary>
+  <description>GEOS (Geometry Engine - Open Source) is a C++ port of the Java Topology
+Suite (JTS). As such, it aims to contain the complete functionality of
+JTS in C++. This includes all the OpenGIS "Simple Features for SQL" spatial
+predicate functions and spatial operators, as well as specific JTS topology
+functions such as IsValid()</description>
+  <packager></packager>
+  <url>http://trac.osgeo.org/geos/</url>
+  <time file="1378766008" build="1378766005"/>
+  <size package="541856" installed="1931471" archive="1932916"/>
+<location href="geos-3.4.2-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>LGPLv2</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Engineering</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>geos-3.4.2-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="7008"/>
+    <rpm:provides>
+      <rpm:entry name="libgeos-3.4.2.so()(64bit)"/>
+      <rpm:entry name="libgeos_c.so.1()(64bit)"/>
+      <rpm:entry name="geos" flags="EQ" epoch="0" ver="3.4.2" rel="1.rhel6"/>
+      <rpm:entry name="geos(x86-64)" flags="EQ" epoch="0" ver="3.4.2" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libgcc_s.so.1()(64bit)"/>
+      <rpm:entry name="libstdc++.so.6()(64bit)"/>
+      <rpm:entry name="libstdc++.so.6(CXXABI_1.3.1)(64bit)"/>
+      <rpm:entry name="libgcc_s.so.1(GCC_4.0.0)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="libm.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libm.so.6()(64bit)"/>
+      <rpm:entry name="libstdc++.so.6(GLIBCXX_3.4.9)(64bit)"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="libstdc++.so.6(CXXABI_1.3)(64bit)"/>
+      <rpm:entry name="/sbin/ldconfig"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="libstdc++.so.6(GLIBCXX_3.4)(64bit)"/>
+      <rpm:entry name="libgcc_s.so.1(GCC_3.0)(64bit)"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="/sbin/ldconfig" pre="1"/>
+      <rpm:entry name="libstdc++.so.6(GLIBCXX_3.4.11)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>geos-devel</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="3.3.8" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">bf7168f413e0986315ee1065449f27fdcff11d5d</checksum>
+  <summary>Development files for GEOS</summary>
+  <description>GEOS (Geometry Engine - Open Source) is a C++ port of the Java Topology
+Suite (JTS). As such, it aims to contain the complete functionality of
+JTS in C++. This includes all the OpenGIS "Simple Features for SQL" spatial
+predicate functions and spatial operators, as well as specific JTS topology
+functions such as IsValid()
+
+This package contains the development files to build applications that
+use GEOS</description>
+  <packager></packager>
+  <url>http://trac.osgeo.org/geos/</url>
+  <time file="1368388817" build="1368388814"/>
+  <size package="1361200" installed="11536816" archive="11825428"/>
+<location href="geos-devel-3.3.8-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>LGPLv2</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Development/Libraries</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>geos-3.3.8-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="246432"/>
+    <rpm:provides>
+      <rpm:entry name="geos-devel" flags="EQ" epoch="0" ver="3.3.8" rel="1.rhel6"/>
+      <rpm:entry name="geos-devel(x86-64)" flags="EQ" epoch="0" ver="3.3.8" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="/bin/sh"/>
+      <rpm:entry name="libgeos_c.so.1()(64bit)"/>
+      <rpm:entry name="geos" flags="EQ" epoch="0" ver="3.3.8" rel="1.rhel6"/>
+      <rpm:entry name="libgeos-3.3.8.so()(64bit)"/>
+    </rpm:requires>
+    <file>/usr/bin/geos-config</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>compat-libevent14-devel</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="1.4.13" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">0673d0ff34c07197d9a0d95e8653b565d8ae758e</checksum>
+  <summary>Header files and libraries for compat-libevent14</summary>
+  <description>This package contains the header files, static libraries and development
+documentation for compat-libevent14. If you like to develop programs using
+compat-libevent14, you will need to install compat-libevent14-devel.</description>
+  <packager></packager>
+  <url>http://monkey.org/~provos/libevent/</url>
+  <time file="1381924807" build="1347676930"/>
+  <size package="89984" installed="289682" archive="291892"/>
+<location href="compat-libevent14-devel-1.4.13-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>BSD</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Development/Libraries</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg92</rpm:buildhost>
+    <rpm:sourcerpm>compat-libevent14-1.4.13-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="5340"/>
+    <rpm:provides>
+      <rpm:entry name="compat-libevent14-devel" flags="EQ" epoch="0" ver="1.4.13" rel="1.rhel6"/>
+      <rpm:entry name="compat-libevent14-devel(x86-64)" flags="EQ" epoch="0" ver="1.4.13" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libevent-1.4.so.2()(64bit)"/>
+      <rpm:entry name="compat-libevent14" flags="EQ" epoch="0" ver="1.4.13" rel="1.rhel6"/>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>phpPgAdmin</name>
+  <arch>noarch</arch>
+  <version epoch="0" ver="5.1" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">fb99435c6b7a57744a7f235591b16e717f5d0d48</checksum>
+  <summary>Web-based PostgreSQL administration</summary>
+  <description>phpPgAdmin is a fully functional web-based administration utility for
+a PostgreSQL database server. It handles all the basic functionality
+as well as some advanced features such as triggers, views and
+functions (stored procedures). It also has Slony-I support.</description>
+  <packager></packager>
+  <url>http://phppgadmin.sourceforge.net/</url>
+  <time file="1368386123" build="1368386123"/>
+  <size package="691440" installed="3121804" archive="3185728"/>
+<location href="phpPgAdmin-5.1-1.rhel6.noarch.rpm"/>
+  <format>
+    <rpm:license>GPLv3+</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>phpPgAdmin-5.1-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="57648"/>
+    <rpm:provides>
+      <rpm:entry name="config(phpPgAdmin)" flags="EQ" epoch="0" ver="5.1" rel="1.rhel6"/>
+      <rpm:entry name="phpPgAdmin" flags="EQ" epoch="0" ver="5.1" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="/sbin/service" pre="1"/>
+      <rpm:entry name="httpd"/>
+      <rpm:entry name="/bin/sh"/>
+      <rpm:entry name="gawk"/>
+      <rpm:entry name="php-pgsql" flags="GE" epoch="0" ver="4.2"/>
+      <rpm:entry name="/bin/bash"/>
+      <rpm:entry name="php" flags="GE" epoch="0" ver="4.2"/>
+      <rpm:entry name="/bin/sh" pre="1"/>
+    </rpm:requires>
+    <file>/etc/httpd/conf.d/phpPgAdmin.conf</file>
+    <file>/etc/phpPgAdmin/config.inc.php</file>
+    <file>/etc/phpPgAdmin/config.inc.php-dist</file>
+    <file type="dir">/etc/phpPgAdmin</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>slony1-93</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="2.1.3" rel="1.rhel6"/>
+  <checksum type="sha" pkgid="YES">b0e968563c2966c5c9041024dea9d55269a9997e</checksum>
+  <summary>A "master to multiple slaves" replication system with cascading and failover</summary>
+  <description>Slony-I is a "master to multiple slaves" replication
+system for PostgreSQL with cascading and failover.
+
+The big picture for the development of Slony-I is to build
+a master-slave system that includes all features and
+capabilities needed to replicate large databases to a
+reasonably limited number of slave systems.
+
+Slony-I is a system for data centers and backup
+sites, where the normal mode of operation is that all nodes
+are available</description>
+  <packager></packager>
+  <url>http://main.slony.info/</url>
+  <time file="1368383864" build="1368383864"/>
+  <size package="224504" installed="768180" archive="775180"/>
+<location href="slony1-93-2.1.3-1.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>BSD</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>slony1-93-2.1.3-1.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="17232"/>
+    <rpm:provides>
+      <rpm:entry name="config(slony1-93)" flags="EQ" epoch="0" ver="2.1.3" rel="1.rhel6"/>
+      <rpm:entry name="slony1_funcs.so()(64bit)"/>
+      <rpm:entry name="slony1-93" flags="EQ" epoch="0" ver="2.1.3" rel="1.rhel6"/>
+      <rpm:entry name="slony1-93(x86-64)" flags="EQ" epoch="0" ver="2.1.3" rel="1.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="libpthread.so.0()(64bit)"/>
+      <rpm:entry name="/bin/sh"/>
+      <rpm:entry name="perl(File::Temp)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.7)(64bit)"/>
+      <rpm:entry name="perl(Getopt::Long)"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="libpthread.so.0(GLIBC_2.3.2)(64bit)"/>
+      <rpm:entry name="perl-DBD-Pg"/>
+      <rpm:entry name="perl(DBI)"/>
+      <rpm:entry name="perl(strict)"/>
+      <rpm:entry name="/bin/sh" pre="1"/>
+      <rpm:entry name="/usr/bin/perl"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="libpthread.so.0(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="postgresql93-server"/>
+      <rpm:entry name="perl(POSIX)"/>
+      <rpm:entry name="libpq.so.5()(64bit)"/>
+    </rpm:requires>
+    <rpm:conflicts>
+      <rpm:entry name="slony1"/>
+    </rpm:conflicts>
+    <file>/etc/rc.d/init.d/slony1-93</file>
+    <file>/etc/slon.conf</file>
+    <file>/etc/slon_tools.conf</file>
+    <file>/usr/pgsql-9.3/bin/slon</file>
+    <file>/usr/pgsql-9.3/bin/slon_kill</file>
+    <file>/usr/pgsql-9.3/bin/slon_start</file>
+    <file>/usr/pgsql-9.3/bin/slon_status</file>
+    <file>/usr/pgsql-9.3/bin/slon_watchdog</file>
+    <file>/usr/pgsql-9.3/bin/slon_watchdog2</file>
+    <file>/usr/pgsql-9.3/bin/slonik</file>
+    <file>/usr/pgsql-9.3/bin/slonik_add_node</file>
+    <file>/usr/pgsql-9.3/bin/slonik_build_env</file>
+    <file>/usr/pgsql-9.3/bin/slonik_create_set</file>
+    <file>/usr/pgsql-9.3/bin/slonik_drop_node</file>
+    <file>/usr/pgsql-9.3/bin/slonik_drop_sequence</file>
+    <file>/usr/pgsql-9.3/bin/slonik_drop_set</file>
+    <file>/usr/pgsql-9.3/bin/slonik_drop_table</file>
+    <file>/usr/pgsql-9.3/bin/slonik_execute_script</file>
+    <file>/usr/pgsql-9.3/bin/slonik_failover</file>
+    <file>/usr/pgsql-9.3/bin/slonik_init_cluster</file>
+    <file>/usr/pgsql-9.3/bin/slonik_merge_sets</file>
+    <file>/usr/pgsql-9.3/bin/slonik_move_set</file>
+    <file>/usr/pgsql-9.3/bin/slonik_print_preamble</file>
+    <file>/usr/pgsql-9.3/bin/slonik_restart_node</file>
+    <file>/usr/pgsql-9.3/bin/slonik_store_node</file>
+    <file>/usr/pgsql-9.3/bin/slonik_subscribe_set</file>
+    <file>/usr/pgsql-9.3/bin/slonik_uninstall_nodes</file>
+    <file>/usr/pgsql-9.3/bin/slonik_unsubscribe_set</file>
+    <file>/usr/pgsql-9.3/bin/slonik_update_nodes</file>
+    <file>/usr/pgsql-9.3/bin/slony_logshipper</file>
+    <file>/usr/pgsql-9.3/bin/slony_show_configuration</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>postgresql93-libs</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+  <checksum type="sha" pkgid="YES">b802274a811a3f60e52c98d3709ebea4b4f10e48</checksum>
+  <summary>The shared libraries required for any PostgreSQL clients</summary>
+  <description>The postgresql93-libs package provides the essential shared libraries for any
+PostgreSQL client program or interface. You will need to install this package
+to use any other PostgreSQL package or any clients that need to connect to a
+PostgreSQL server.</description>
+  <packager></packager>
+  <url>http://www.postgresql.org/</url>
+  <time file="1381310370" build="1381310360"/>
+  <size package="193992" installed="646278" archive="650176"/>
+<location href="postgresql93-libs-9.3.1-1PGDG.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>PostgreSQL</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Databases</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>postgresql93-9.3.1-1PGDG.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="11368"/>
+    <rpm:provides>
+      <rpm:entry name="config(postgresql93-libs)" flags="EQ" epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+      <rpm:entry name="libecpg.so.6()(64bit)"/>
+      <rpm:entry name="libecpg_compat.so.3()(64bit)"/>
+      <rpm:entry name="libpgtypes.so.3()(64bit)"/>
+      <rpm:entry name="libpq.so"/>
+      <rpm:entry name="libpq.so.5()(64bit)"/>
+      <rpm:entry name="libpqwalreceiver.so()(64bit)"/>
+      <rpm:entry name="postgresql-libs"/>
+      <rpm:entry name="postgresql93-libs" flags="EQ" epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+      <rpm:entry name="postgresql93-libs(x86-64)" flags="EQ" epoch="0" ver="9.3.1" rel="1PGDG.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libldap_r-2.4.so.2()(64bit)"/>
+      <rpm:entry name="libpthread.so.0()(64bit)"/>
+      <rpm:entry name="libcrypto.so.10()(64bit)"/>
+      <rpm:entry name="libm.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libm.so.6()(64bit)"/>
+      <rpm:entry name="/bin/sh"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="libgssapi_krb5.so.2(gssapi_krb5_2_MIT)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3)(64bit)"/>
+      <rpm:entry name="libgssapi_krb5.so.2()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="libssl.so.10()(64bit)"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="libpthread.so.0(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="/bin/sh" pre="1"/>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>libgeotiff-devel</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="1.4.0" rel="1.el6"/>
+  <checksum type="sha" pkgid="YES">922bc8119230467c89935687b7ec03fb57b5b5d3</checksum>
+  <summary>Development library and header for the GeoTIFF file format library</summary>
+  <description>The GeoTIFF library provides support for development of geotiff image format.</description>
+  <packager></packager>
+  <url>http://www.remotesensing.org/geotiff/geotiff.html</url>
+  <time file="1379951659" build="1353518396"/>
+  <size package="30400" installed="127190" archive="131240"/>
+<location href="libgeotiff-devel-1.4.0-1.el6.x86_64.rpm"/>
+  <format>
+    <rpm:license>MIT</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Development/Libraries</rpm:group>
+    <rpm:buildhost>mostar</rpm:buildhost>
+    <rpm:sourcerpm>libgeotiff-1.4.0-1.el6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="8304"/>
+    <rpm:provides>
+      <rpm:entry name="pkgconfig(libgeotiff)" flags="EQ" epoch="0" ver="1.4.0"/>
+      <rpm:entry name="libgeotiff-devel" flags="EQ" epoch="0" ver="1.4.0" rel="1.el6"/>
+      <rpm:entry name="libgeotiff-devel(x86-64)" flags="EQ" epoch="0" ver="1.4.0" rel="1.el6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libtiff-devel"/>
+      <rpm:entry name="libgeotiff(x86-64)" flags="EQ" epoch="0" ver="1.4.0" rel="1.el6"/>
+      <rpm:entry name="/usr/bin/pkg-config"/>
+      <rpm:entry name="libgeotiff.so.2()(64bit)"/>
+      <rpm:entry name="pkgconfig"/>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>gdal-perl</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="1.9.2" rel="4.el6"/>
+  <checksum type="sha" pkgid="YES">12958e319d9155b83ad83191b8fd99e554e9e330</checksum>
+  <summary>Perl modules for the GDAL file format library</summary>
+  <description>The GDAL Perl modules provide support to handle multiple GIS file formats.</description>
+  <packager></packager>
+  <url>http://www.gdal.org</url>
+  <time file="1379951659" build="1365771954"/>
+  <size package="277948" installed="1145263" archive="1148344"/>
+<location href="gdal-perl-1.9.2-4.el6.x86_64.rpm"/>
+  <format>
+    <rpm:license>MIT</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Development/Libraries</rpm:group>
+    <rpm:buildhost>mostar</rpm:buildhost>
+    <rpm:sourcerpm>gdal-1.9.2-4.el6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="25296"/>
+    <rpm:provides>
+      <rpm:entry name="Const.so()(64bit)"/>
+      <rpm:entry name="GDAL.so()(64bit)"/>
+      <rpm:entry name="OGR.so()(64bit)"/>
+      <rpm:entry name="OSR.so()(64bit)"/>
+      <rpm:entry name="perl(Geo::GDAL)" flags="EQ" epoch="0" ver="1.92"/>
+      <rpm:entry name="perl(Geo::GDAL::AsyncReader)"/>
+      <rpm:entry name="perl(Geo::GDAL::Band)"/>
+      <rpm:entry name="perl(Geo::GDAL::ColorTable)"/>
+      <rpm:entry name="perl(Geo::GDAL::Const)"/>
+      <rpm:entry name="perl(Geo::GDAL::Constc)"/>
+      <rpm:entry name="perl(Geo::GDAL::Dataset)"/>
+      <rpm:entry name="perl(Geo::GDAL::Driver)"/>
+      <rpm:entry name="perl(Geo::GDAL::GCP)"/>
+      <rpm:entry name="perl(Geo::GDAL::MajorObject)"/>
+      <rpm:entry name="perl(Geo::GDAL::RasterAttributeTable)"/>
+      <rpm:entry name="perl(Geo::GDAL::Transformer)"/>
+      <rpm:entry name="perl(Geo::GDALc)"/>
+      <rpm:entry name="perl(Geo::OGR)"/>
+      <rpm:entry name="perl(Geo::OGR::DataSource)"/>
+      <rpm:entry name="perl(Geo::OGR::Driver)"/>
+      <rpm:entry name="perl(Geo::OGR::Feature)"/>
+      <rpm:entry name="perl(Geo::OGR::FeatureDefn)"/>
+      <rpm:entry name="perl(Geo::OGR::FieldDefn)"/>
+      <rpm:entry name="perl(Geo::OGR::Geometry)"/>
+      <rpm:entry name="perl(Geo::OGR::Layer)"/>
+      <rpm:entry name="perl(Geo::OGRc)"/>
+      <rpm:entry name="perl(Geo::OSR)"/>
+      <rpm:entry name="perl(Geo::OSR::CoordinateTransformation)"/>
+      <rpm:entry name="perl(Geo::OSR::SpatialReference)"/>
+      <rpm:entry name="perl(Geo::OSRc)"/>
+      <rpm:entry name="gdal-perl" flags="EQ" epoch="0" ver="1.9.2" rel="4.el6"/>
+      <rpm:entry name="gdal-perl(x86-64)" flags="EQ" epoch="0" ver="1.9.2" rel="4.el6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="libCharLS.so.1()(64bit)"/>
+      <rpm:entry name="perl(base)"/>
+      <rpm:entry name="libgif.so.4()(64bit)"/>
+      <rpm:entry name="libpoppler.so.5()(64bit)"/>
+      <rpm:entry name="libgta.so.0()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.4)(64bit)"/>
+      <rpm:entry name="libpthread.so.0()(64bit)"/>
+      <rpm:entry name="libtiff.so.3()(64bit)"/>
+      <rpm:entry name="libarmadillo.so.3()(64bit)"/>
+      <rpm:entry name="libdapserver.so.7()(64bit)"/>
+      <rpm:entry name="libcrypto.so.10()(64bit)"/>
+      <rpm:entry name="libm.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libm.so.6()(64bit)"/>
+      <rpm:entry name="libexpat.so.1()(64bit)"/>
+      <rpm:entry name="libnsl.so.1()(64bit)"/>
+      <rpm:entry name="libodbcinst.so.2()(64bit)"/>
+      <rpm:entry name="perl(vars)"/>
+      <rpm:entry name="gdal-libs(x86-64)" flags="EQ" epoch="0" ver="1.9.2" rel="4.el6"/>
+      <rpm:entry name="libpq.so.5()(64bit)"/>
+      <rpm:entry name="librt.so.1()(64bit)"/>
+      <rpm:entry name="perl(UNIVERSAL)"/>
+      <rpm:entry name="libc.so.6()(64bit)"/>
+      <rpm:entry name="perl(Carp)"/>
+      <rpm:entry name="perl(:MODULE_COMPAT_5.10.1)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="perl(Encode)"/>
+      <rpm:entry name="libodbc.so.2()(64bit)"/>
+      <rpm:entry name="liblzma.so.0()(64bit)"/>
+      <rpm:entry name="libgeos_c.so.1()(64bit)"/>
+      <rpm:entry name="libgdal.so.1()(64bit)"/>
+      <rpm:entry name="libjpeg.so.62()(64bit)"/>
+      <rpm:entry name="libcurl.so.4()(64bit)"/>
+      <rpm:entry name="libcfitsio.so.0()(64bit)"/>
+      <rpm:entry name="libxerces-c-3.0.so()(64bit)"/>
+      <rpm:entry name="libfreexl.so.1()(64bit)"/>
+      <rpm:entry name="libc.so.6(GLIBC_2.3.4)(64bit)"/>
+      <rpm:entry name="libdap.so.11()(64bit)"/>
+      <rpm:entry name="libjasper.so.1()(64bit)"/>
+      <rpm:entry name="libpng12.so.0()(64bit)"/>
+      <rpm:entry name="libnetcdf.so.6()(64bit)"/>
+      <rpm:entry name="perl(strict)"/>
+      <rpm:entry name="libcrypt.so.1()(64bit)"/>
+      <rpm:entry name="libssl.so.10()(64bit)"/>
+      <rpm:entry name="libz.so.1()(64bit)"/>
+      <rpm:entry name="libspatialite.so.2()(64bit)"/>
+      <rpm:entry name="libgeotiff.so.2()(64bit)"/>
+      <rpm:entry name="rtld(GNU_HASH)"/>
+      <rpm:entry name="libpthread.so.0(GLIBC_2.2.5)(64bit)"/>
+      <rpm:entry name="libhdf5.so.6()(64bit)"/>
+      <rpm:entry name="libdl.so.2()(64bit)"/>
+      <rpm:entry name="libmysqlclient.so.16()(64bit)"/>
+      <rpm:entry name="libdapclient.so.3()(64bit)"/>
+    </rpm:requires>
+  </format>
+</package>
+<package type="rpm">
+  <name>proj-nad</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="4.8.0" rel="2.rhel6"/>
+  <checksum type="sha" pkgid="YES">b15f67f50ac622714ff7100bed99f94c0866685e</checksum>
+  <summary>US, Canadian, French and New Zealand datum shift grids for PROJ.4</summary>
+  <description>This package contains additional US and Canadian datum shift grids.</description>
+  <packager></packager>
+  <url>http://trac.osgeo.org/proj</url>
+  <time file="1368384793" build="1368384790"/>
+  <size package="2205804" installed="4434838" archive="4439776"/>
+<location href="proj-nad-4.8.0-2.rhel6.x86_64.rpm"/>
+  <format>
+    <rpm:license>MIT</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Applications/Engineering</rpm:group>
+    <rpm:buildhost>koji-sl6-x86-64-pg93</rpm:buildhost>
+    <rpm:sourcerpm>proj-4.8.0-2.rhel6.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="456" end="7352"/>
+    <rpm:provides>
+      <rpm:entry name="proj-nad" flags="EQ" epoch="0" ver="4.8.0" rel="2.rhel6"/>
+      <rpm:entry name="proj-nad(x86-64)" flags="EQ" epoch="0" ver="4.8.0" rel="2.rhel6"/>
+    </rpm:provides>
+    <rpm:requires>
+      <rpm:entry name="/bin/bash"/>
+      <rpm:entry name="proj" flags="EQ" epoch="0" ver="4.8.0" rel="2.rhel6"/>
+    </rpm:requires>
+  </format>
+</package>
+</metadata>
