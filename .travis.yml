@@ -5,3 +5,6 @@ python:
 script:
 - flake8 depot
 - py.test
+matrix:
+  allow_failures:
+  - python: "3.3"
