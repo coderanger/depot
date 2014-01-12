@@ -20,6 +20,7 @@ import six
 
 from .base import YumMeta, YumData
 
+
 class YumRepoMDData(YumData):
     def __init__(self, type, *args, **kwargs):
         super(YumRepoMDData, self).__init__(*args, **kwargs)
@@ -41,6 +42,7 @@ class YumRepoMDData(YumData):
 
     def root_to_element(self, E, sub):
         return E.data(*sub, type=self.type)
+
 
 class YumRepoMD(YumMeta):
     DataClass = YumRepoMDData

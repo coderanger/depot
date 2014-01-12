@@ -16,5 +16,7 @@
 # limitations under the License.
 #
 
-from .repomd import YumRepoMD  # noqa
-from .primary import YumPrimary  # noqa
+pytest
+pretend
+flake8
+-e .

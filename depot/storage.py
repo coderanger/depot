@@ -11,6 +11,7 @@ from libcloud.storage.types import ContainerDoesNotExistError, ObjectDoesNotExis
 _base_path = os.path.abspath(os.path.dirname(__file__))
 libcloud.security.CA_CERTS_PATH.append(os.path.join(_base_path, 'cacert.pem'))
 
+
 class Sizer(object):
     def __init__(self):
         self.size = 0
@@ -130,6 +131,8 @@ class StorageWrapper(object):
 # OH GOD I DON'T EVEN
 from libcloud.storage.drivers.s3 import S3StorageDriver
 old_upload_object = S3StorageDriver._upload_object
+
+
 def _upload_object(*args, **kwargs):
     if 'headers' in kwargs:
         kwargs['headers']['x-amz-acl'] = 'public-read'

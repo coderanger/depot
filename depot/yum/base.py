@@ -23,6 +23,7 @@ from lxml.builder import ElementMaker
 from lxml.etree import QName
 import six
 
+
 class YumMeta(collections.OrderedDict):
     nsmap = {}
 
@@ -44,6 +45,7 @@ class YumMeta(collections.OrderedDict):
             xml_declaration=True,
             encoding='UTF-8',
         )
+
 
 class YumData(collections.OrderedDict):
     NS = None

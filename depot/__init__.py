@@ -18,12 +18,12 @@ depot -s s3://apt.example.com -c precise -k 6791B14F mypackage.deb
 import os
 
 import docopt
-import six
 
 from .apt import AptRepository
 from .gpg import GPG
 from .storage import StorageWrapper
-from .version import __version_info__, __version__
+from .version import __version_info__, __version__  # noqa
+
 
 def main():
     args = docopt.docopt(__doc__, version='depot '+__version__)
@@ -36,7 +36,7 @@ def main():
     storage = StorageWrapper(args['--storage'], args['--no-public'])
     repo = AptRepository(storage, gpg, args['--codename'], args['--component'], args['--architecture'])
     for pkg_path in args['<package>']:
-        print 'Uploading package %s'%pkg_path
+        print 'Uploading package {0}'.format(pkg_path)
         repo.add_package(pkg_path)
     print 'Uploading metadata'
     repo.commit_metadata()

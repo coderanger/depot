@@ -1,8 +1,6 @@
 # coding=utf8
 import bz2
 import collections
-import cStringIO
-import gzip
 import os
 import tarfile
 import time
@@ -18,10 +16,11 @@ import six
 from .utils import gzip_compress
 from .version import __version__
 
+
 class AptMeta(collections.OrderedDict):
     def __init__(self, data):
         super(AptMeta, self).__init__()
-        self._data = data # For testing/debugging
+        self._data = data  # For testing/debugging
         last_key = None
         for line in data.splitlines() if hasattr(data, 'splitlines') else data.readlines():
             line = line.rstrip('\n')
@@ -29,7 +28,7 @@ class AptMeta(collections.OrderedDict):
                 if last_key:
                     self[last_key] += '\n' + line
                 else:
-                    raise ValueError('Can not parse line: %r'%line)
+                    raise ValueError('Can not parse line: {0}'.format(repr(line)))
             else:
                 last_key, value = line.split(':', 1)
                 value = value.lstrip(' ')
@@ -67,7 +66,7 @@ class AptPackages(object):
     def __init__(self, storage, data):
         self.storage = storage
         self.packages = {}
-        self._data = data # For testing/debugging
+        self._data = data  # For testing/debugging
         for buf in data.split('\n\n'):
             if not buf.strip():
                 continue
@@ -95,7 +94,7 @@ class AptRelease(AptMeta):
         if 'Components' not in self:
             # Need to setup some defaults
             self['Origin'] = 'Depot {0}'.format(__version__)
-            self['Date'] = '' # Will be regenerated, but lock the order
+            self['Date'] = ''  # Will be regenerated, but lock the order
             self['Codename'] = self.codename
             # These are filled in using add_metadata()
             self['Architectures'] = ''
@@ -154,7 +153,7 @@ class AptRepository(object):
         self.codename = codename
         self.component = component
         self.architecture = architecture
-        self.dirty_packages = {} # arch: [pkg, pkg]
+        self.dirty_packages = {}  # arch: [pkg, pkg]
         self.dirty_sources = False
 
     def add_package(self, path, fileobj=None):

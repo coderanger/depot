@@ -3,6 +3,7 @@ import os
 
 import gnupg
 
+
 class GPG(object):
     def __init__(self, keyid):
         self.gpg = gnupg.GPG(use_agent=False)
