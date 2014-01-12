@@ -28,7 +28,7 @@ class StorageWrapper(object):
         self._hashes = {}
 
     def upload(self, path, data):
-        if isinstance(data, basestring):
+        if isinstance(data, six.binary_type):
             # Simple case of in-memory content
             return self.upload(path, (data,))
         elif hasattr(data, 'read'):
