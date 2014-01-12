@@ -4,7 +4,8 @@ import re
 import pytest
 from pretend import call_recorder, call, stub
 
-from depot.yum import YumRepoMD, YumPrimary
+from depot.yum import YumRepoMD, YumPrimary, YumFileLists
+
 
 # Convert XML into a format that diffs nicely
 def unify_spacing(data):
@@ -67,4 +68,14 @@ class TestYumPrimary(object):
     def test_str_pgdgmini(self, pgdgmini):
         raw = open(pgdgmini.filename, 'rb').read()
         assert unify_spacing(str(pgdgmini)) == unify_spacing(raw)
+
+
+class TestYumFileLists(object):
+    @pytest.fixture
+    def pgdg(self):
+        return YumFileLists.from_file(os.path.join(os.path.dirname(__file__), 'data', 'pgdg_filelists.xml'))
+
+    def test_str_pgdg(self, pgdg):
+        raw = open(pgdg.filename, 'rb').read()
+        assert unify_spacing(str(pgdg)) == unify_spacing(raw)
 

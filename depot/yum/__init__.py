@@ -16,5 +16,6 @@
 # limitations under the License.
 #
 
-from .repomd import YumRepoMD  # noqa
+from .filelists import YumFileLists  # noqa
 from .primary import YumPrimary  # noqa
+from .repomd import YumRepoMD  # noqa
