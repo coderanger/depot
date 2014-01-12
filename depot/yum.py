@@ -67,4 +67,4 @@ class YumRepoMD(collections.OrderedDict):
             'rpm': 'http://linux.duke.edu/metadata/rpm',
         }
         E = ElementMaker(nsmap=nsmap)
-        return '<?xml version="1.0" ?>\n' + lxml.tostring(self.to_element(E), encoding=unicode).encode('utf-8')
+        return lxml.tostring(self.to_element(E), xml_declaration=True, encoding='UTF-8')
