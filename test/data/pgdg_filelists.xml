@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <filelists xmlns="http://linux.duke.edu/metadata/filelists" packages="190">
 <package pkgid="a6fdef5d1026dea208eeeba148f55ac2f545989b" name="ip4r93" arch="x86_64">
     <version epoch="0" ver="1.05" rel="3.rhel6"/>
