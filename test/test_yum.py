@@ -84,7 +84,6 @@ class TestYumPrimary(object):
         assert pgdgmini[('postgresql93-debuginfo', 'x86_64', '0:9.3.1-1PGDG.rhel6')]['checksum'] == '048be8c5573c0d92bf64e476beb739c31b2d0f91'
         assert pgdgmini[('postgresql93-debuginfo', 'x86_64', '0:9.3.1-1PGDG.rhel6')]['url'] == ''
 
-
     def test_str_epel(self, epel):
         assert unify_spacing(epel.encode()) == unify_spacing(epel)
 
