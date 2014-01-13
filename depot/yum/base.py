@@ -45,7 +45,7 @@ class YumMeta(collections.OrderedDict):
     def to_element(self, E):
         raise NotImplementedError
 
-    def __str__(self):
+    def encode(self):
         return lxml.tostring(
             self.to_element(ElementMaker(nsmap=self.nsmap)),
             xml_declaration=True,

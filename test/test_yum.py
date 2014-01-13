@@ -21,23 +21,35 @@ import os
 import re
 
 import pytest
+import six
 
 from depot.yum import YumRepoMD, YumPrimary, YumFileLists
 
 
 # Convert XML into a format that diffs nicely
 def unify_spacing(data):
+    if not isinstance(data, six.binary_type):
+        data._fileobj.seek(0, 0)
+        data = data._fileobj.read()
     return re.sub('>', '>\n', re.sub('\s+', ' ', re.sub('>', '>\n', re.sub('\n', '', data))))
+
+def fixture(cls, name):
+    path = os.path.join(os.path.dirname(__file__), 'data', name)
+    open_ = gzip.open if path.endswith('.gz') else open
+    fileobj = open_(path, 'rb')
+    obj =  cls.from_file(path, fileobj=fileobj)
+    obj._fileobj = fileobj
+    return obj
 
 
 class TestYumRepoMD(object):
     @pytest.fixture
     def epel(self):
-        return YumRepoMD.from_file(os.path.join(os.path.dirname(__file__), 'data', 'epel_repomd.xml'))
+        return fixture(YumRepoMD, 'epel_repomd.xml')
 
     @pytest.fixture
     def pgdg(self):
-        return YumRepoMD.from_file(os.path.join(os.path.dirname(__file__), 'data', 'pgdg_repomd.xml'))
+        return fixture(YumRepoMD, 'pgdg_repomd.xml')
 
     def test_from_file(self, epel):
         assert epel.revision == 1389466441
@@ -47,26 +59,24 @@ class TestYumRepoMD(object):
         assert epel['group']['location'] == 'repodata/fdddf90da3a700ad6da5ff78e13c17258655bbe3-comps-el5.xml'
 
     def test_str_epel(self, epel):
-        raw = open(epel.filename, 'rb').read()
-        assert unify_spacing(str(epel)) == unify_spacing(raw)
+        assert unify_spacing(epel.encode()) == unify_spacing(epel)
 
     def test_str_pgdg(self, pgdg):
-        raw = open(pgdg.filename, 'rb').read()
-        assert unify_spacing(str(pgdg)) == unify_spacing(raw)
+        assert unify_spacing(pgdg.encode()) == unify_spacing(pgdg)
 
 
 class TestYumPrimary(object):
     @pytest.fixture
     def epel(self):
-        return YumPrimary.from_file(os.path.join(os.path.dirname(__file__), 'data', 'epel_primary.xml'))
+        return fixture(YumPrimary, 'epel_primary.xml.gz')
 
     @pytest.fixture
     def pgdg(self):
-        return YumPrimary.from_file(os.path.join(os.path.dirname(__file__), 'data', 'pgdg_primary.xml'))
+        return fixture(YumPrimary, 'pgdg_primary.xml')
 
     @pytest.fixture
     def pgdgmini(self):
-        return YumPrimary.from_file(os.path.join(os.path.dirname(__file__), 'data', 'pgdgmini_primary.xml'))
+        return fixture(YumPrimary, 'pgdgmini_primary.xml')
 
     def test_from_file_pgdgmini(self, pgdgmini):
         assert pgdgmini[('ip4r93', 'x86_64', '0:1.05-3.rhel6')]['summary'] == 'IPv4 and IPv4 range index types for PostgreSQL'
@@ -76,37 +86,27 @@ class TestYumPrimary(object):
 
 
     def test_str_epel(self, epel):
-        raw = open(epel.filename, 'rb').read()
-        assert unify_spacing(str(epel)) == unify_spacing(raw)
+        assert unify_spacing(epel.encode()) == unify_spacing(epel)
 
     def test_str_pgdg(self, pgdg):
-        raw = open(pgdg.filename, 'rb').read()
-        assert unify_spacing(str(pgdg)) == unify_spacing(raw)
+        assert unify_spacing(pgdg.encode()) == unify_spacing(pgdg)
 
     def test_str_pgdgmini(self, pgdgmini):
-        raw = open(pgdgmini.filename, 'rb').read()
-        assert unify_spacing(str(pgdgmini)) == unify_spacing(raw)
+        assert unify_spacing(pgdgmini.encode()) == unify_spacing(pgdgmini)
 
 
 class TestYumFileLists(object):
     @pytest.fixture
     def epel(self):
-        path = os.path.join(os.path.dirname(__file__), 'data', 'epel_filelists.xml.gz')
-        gz = gzip.open(path, 'rb')
-        epel =  YumFileLists.from_file(path, fileobj=gz)
-        epel._gz = gz
-        return epel
+        return fixture(YumFileLists, 'epel_filelists.xml.gz')
 
     @pytest.fixture
     def pgdg(self):
-        return YumFileLists.from_file(os.path.join(os.path.dirname(__file__), 'data', 'pgdg_filelists.xml'))
+        return fixture(YumFileLists, 'pgdg_filelists.xml')
 
     def test_str_epel(self, epel):
-        epel._gz.rewind()
-        raw = epel._gz.read()
-        assert unify_spacing(str(epel)) == unify_spacing(raw)
+        assert unify_spacing(epel.encode()) == unify_spacing(epel)
 
     def test_str_pgdg(self, pgdg):
-        raw = open(pgdg.filename, 'rb').read()
-        assert unify_spacing(str(pgdg)) == unify_spacing(raw)
+        assert unify_spacing(pgdg.encode()) == unify_spacing(pgdg)
 
