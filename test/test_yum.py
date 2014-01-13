@@ -23,7 +23,7 @@ import re
 import pytest
 import six
 
-from depot.yum import YumRepoMD, YumPrimary, YumFileLists
+from depot.yum import YumRepoMD, YumPrimary, YumFileLists, YumOther
 
 
 # Convert XML into a format that diffs nicely
@@ -109,3 +109,18 @@ class TestYumFileLists(object):
     def test_str_pgdg(self, pgdg):
         assert unify_spacing(pgdg.encode()) == unify_spacing(pgdg)
 
+
+class TestYumOther(object):
+    @pytest.fixture
+    def epel(self):
+        return fixture(YumOther, 'epel_other.xml.gz')
+
+    @pytest.fixture
+    def pgdg(self):
+        return fixture(YumOther, 'pgdg_other.xml')
+
+    def test_str_epel(self, epel):
+        assert unify_spacing(epel.encode()) == unify_spacing(epel)
+
+    def test_str_pgdg(self, pgdg):
+        assert unify_spacing(pgdg.encode()) == unify_spacing(pgdg)

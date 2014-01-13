@@ -17,5 +17,6 @@
 #
 
 from .filelists import YumFileLists  # noqa
+from .other import YumOther  # noqa
 from .primary import YumPrimary  # noqa
 from .repomd import YumRepoMD  # noqa
