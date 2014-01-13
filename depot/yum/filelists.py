@@ -27,6 +27,32 @@ class YumFileListsPackage(YumData):
         self.pkgid = pkgid
         self.name = name
         self.arch = arch
+        self.files = []
+
+    def version_from_element(self, key, elm):
+        return elm.attrib
+
+    def file_from_element(self, key, elm):
+        self.files.append((elm.attrib.get('type'), elm.text))
+        return self.NoInsert
+
+    def version_to_element(self, E, key, value):
+        elm = E(key)
+        for a_key, a_value in six.iteritems(value):
+            elm.attrib[a_key] = a_value
+        return elm
+
+    def root_to_element(self, E, sub):
+        for file_type, file_path in self.files:
+            elm = E.file(file_path)
+            if file_type:
+                elm.attrib['type'] = file_type
+            sub.append(elm)
+        root = E.package(*sub)
+        root.attrib['pkgid'] = self.pkgid
+        root.attrib['name'] = self.name
+        root.attrib['arch'] = self.arch
+        return root
 
 
 class YumFileLists(YumMeta):
