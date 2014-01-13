@@ -1,8 +1,26 @@
+#
+# Author:: Noah Kantrowitz <noah@coderanger.net>
+#
+# Copyright 2014, Noah Kantrowitz
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+import gzip
 import os
 import re
 
 import pytest
-from pretend import call_recorder, call, stub
 
 from depot.yum import YumRepoMD, YumPrimary, YumFileLists
 
@@ -73,14 +91,19 @@ class TestYumPrimary(object):
 class TestYumFileLists(object):
     @pytest.fixture
     def epel(self):
-        return YumFileLists.from_file(os.path.join(os.path.dirname(__file__), 'data', 'epel_filelists.xml'))
+        path = os.path.join(os.path.dirname(__file__), 'data', 'epel_filelists.xml.gz')
+        gz = gzip.open(path, 'rb')
+        epel =  YumFileLists.from_file(path, fileobj=gz)
+        epel._gz = gz
+        return epel
 
     @pytest.fixture
     def pgdg(self):
         return YumFileLists.from_file(os.path.join(os.path.dirname(__file__), 'data', 'pgdg_filelists.xml'))
 
     def test_str_epel(self, epel):
-        raw = open(epel.filename, 'rb').read()
+        epel._gz.rewind()
+        raw = epel._gz.read()
         assert unify_spacing(str(epel)) == unify_spacing(raw)
 
     def test_str_pgdg(self, pgdg):
