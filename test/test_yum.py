@@ -72,8 +72,16 @@ class TestYumPrimary(object):
 
 class TestYumFileLists(object):
     @pytest.fixture
+    def epel(self):
+        return YumFileLists.from_file(os.path.join(os.path.dirname(__file__), 'data', 'epel_filelists.xml'))
+
+    @pytest.fixture
     def pgdg(self):
         return YumFileLists.from_file(os.path.join(os.path.dirname(__file__), 'data', 'pgdg_filelists.xml'))
+
+    def test_str_epel(self, epel):
+        raw = open(epel.filename, 'rb').read()
+        assert unify_spacing(str(epel)) == unify_spacing(raw)
 
     def test_str_pgdg(self, pgdg):
         raw = open(pgdg.filename, 'rb').read()
