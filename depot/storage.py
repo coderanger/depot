@@ -96,7 +96,7 @@ class StorageWrapper(object):
     @staticmethod
     def _get_storage(uri):
         """
-        Given a URI like local:///srv/repo or s3://key:secret/apt.example.com,
+        Given a URI like local:///srv/repo or s3://key:secret@apt.example.com,
         return a libcloud storage or container object.
         """
         driver = get_driver(uri.scheme)
