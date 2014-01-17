@@ -51,6 +51,7 @@ class StorageWrapper(object):
             if not self.no_public:
                 if self.uri.scheme.startswith('s3'):
                     # Yeah so this doesn't work, scroll down to the bottom and cry
+                    extra['acl'] = 'public-read'
                     extra['meta_data'] = {'acl': 'public-read'}
                 # Other clouds here
             return self.storage.upload_object_via_stream((self._update_hashes(path, buf, False) for buf in data), path, extra=extra)
