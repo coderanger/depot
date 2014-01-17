@@ -139,7 +139,8 @@ old_upload_object = S3StorageDriver._upload_object
 
 
 def _upload_object(*args, **kwargs):
-    if 'headers' in kwargs:
-        kwargs['headers']['x-amz-acl'] = 'public-read'
+    # Rewrite to the correct header
+    if kwargs.get('headers', {}).get('x-amz-meta-acl'):
+        kwargs['headers']['x-amz-acl'] = kwargs['headers'].pop('x-amz-meta-acl')
     return old_upload_object(*args, **kwargs)
 S3StorageDriver._upload_object = _upload_object
