@@ -104,6 +104,7 @@ class StorageWrapper(object):
         key = uri.username
         secret = uri.password
         container = uri.netloc
+        driver_kwargs = {}
         if uri.scheme.startswith('s3'):
             if not key:
                 key = os.environ.get('AWS_ACCESS_KEY_ID')
@@ -111,6 +112,9 @@ class StorageWrapper(object):
                 secret = os.environ.get('AWS_SECRET_ACCESS_KEY')
             if not (key and secret and container):
                 raise ValueError('For S3 you must provide an access key ID, secret access key, and bucket name')
+            # No way to store this in the URI, what about a CLI option too?
+            if 'AWS_TOKEN' in os.environ:
+                driver_kwargs['token'] = os.environ['AWS_TOKEN']
         elif uri.scheme == 'local':
             parts = []
             if uri.netloc:
@@ -122,7 +126,7 @@ class StorageWrapper(object):
             base_path = os.path.abspath(''.join(parts))
             key = os.path.dirname(base_path)
             container = os.path.basename(base_path)
-        storage = driver(key, secret)
+        storage = driver(key, secret, **driver_kwargs)
         try:
             return storage.get_container(container)
         except ContainerDoesNotExistError:
