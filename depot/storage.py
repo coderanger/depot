@@ -58,13 +58,18 @@ class StorageWrapper(object):
 
     def download(self, path, skip_hash=False):
         # Assumption, this isn't a big file
+        it = self.download_iter(path, skip_hash)
+        if it:
+            return ''.join(it)
+
+    def download_iter(self, path, skip_hash=False):
         try:
             obj = self.storage.get_object(path)
         except ObjectDoesNotExistError:
             return None
         if not skip_hash:
             self._update_hashes(path, '')
-        return ''.join(
+        return (
             buf if skip_hash else self._update_hashes(path, buf, False)
             for buf in self.storage.download_object_as_stream(obj)
         )
