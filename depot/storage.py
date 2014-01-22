@@ -22,7 +22,7 @@ class Sizer(object):
 
 class StorageWrapper(object):
     def __init__(self, uri, no_public=False):
-        self.uri = uri = urlparse(uri)
+        self.uri = urlparse(uri)
         self.no_public = no_public
         self.storage = self._get_storage(self.uri)
         self._hashes = {}
