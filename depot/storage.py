@@ -94,13 +94,13 @@ class StorageWrapper(object):
             self._update_hashes(path, '')
         return self._hashes[path]
 
-    @staticmethod
-    def _get_storage(uri):
+    @classmethod
+    def _get_storage(cls, uri):
         """
         Given a URI like local:///srv/repo or s3://key:secret@apt.example.com,
         return a libcloud storage or container object.
         """
-        driver = get_driver(uri.scheme)
+        driver = cls._get_driver(uri.scheme)
         key = uri.username
         secret = uri.password
         container = uri.netloc
@@ -131,6 +131,11 @@ class StorageWrapper(object):
             return storage.get_container(container)
         except ContainerDoesNotExistError:
             return storage.create_container(container)
+
+    @classmethod
+    def _get_driver(cls, name):
+        """Wrapper for libcloud's get_driver for testing."""
+        return get_driver(name)
 
 
 # OH GOD I DON'T EVEN
