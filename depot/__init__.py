@@ -37,6 +37,8 @@ def main():
     repo = AptRepository(storage, gpg, args['--codename'], args['--component'], args['--architecture'])
     for pkg_path in args['<package>']:
         print('Uploading package {0}'.format(pkg_path))
-        repo.add_package(pkg_path)
+        fileobj = StorageWrapper.file(pkg_path)
+        repo.add_package(pkg_path, fileobj)
+        fileobj.close()
     print('Uploading metadata')
     repo.commit_metadata()

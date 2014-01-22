@@ -1,5 +1,6 @@
 import hashlib
 import os
+import tempfile
 
 import six
 import libcloud.security
@@ -98,6 +99,26 @@ class StorageWrapper(object):
         if path not in self._hashes:
             self._update_hashes(path, '')
         return self._hashes[path]
+
+    @classmethod
+    def file(cls, uri_or_path):
+        """
+        Given either a URI like s3://bucket/path.txt or a path like /path.txt,
+        return a file object for it.
+        """
+        uri = urlparse(uri_or_path)
+        if not uri.scheme:
+            # Just a normal path
+            return open(uri_or_path, 'rb')
+        else:
+            it = cls(uri_or_path).download_iter(uri.path.lstrip('/'), skip_hash=True)
+            if not it:
+                raise ValueError('{0} not found'.format(uri_or_path))
+            tmp = tempfile.TemporaryFile()
+            for chunk in it:
+                tmp.write(chunk)
+            tmp.seek(0, 0)
+            return tmp
 
     @classmethod
     def _get_storage(cls, uri):
