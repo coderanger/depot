@@ -1,11 +1,11 @@
 import hashlib
 import os
-from urlparse import urlparse
 
 import six
 import libcloud.security
 from libcloud.storage.providers import get_driver
 from libcloud.storage.types import ContainerDoesNotExistError, ObjectDoesNotExistError
+from six.moves.urllib.parse import urlparse
 
 # Include the current cURL CA bundle as a fallback
 _base_path = os.path.abspath(os.path.dirname(__file__))
