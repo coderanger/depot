@@ -51,9 +51,7 @@ class StorageWrapper(object):
                 extra['content_type'] = 'text/plain'
             if not self.no_public:
                 if self.uri.scheme.startswith('s3'):
-                    # Yeah so this doesn't work, scroll down to the bottom and cry
                     extra['acl'] = 'public-read'
-                    extra['meta_data'] = {'acl': 'public-read'}
                 # Other clouds here
             return self.storage.upload_object_via_stream((self._update_hashes(path, buf, False) for buf in data), path, extra=extra)
 
@@ -162,16 +160,3 @@ class StorageWrapper(object):
     def _get_driver(cls, name):
         """Wrapper for libcloud's get_driver for testing."""
         return get_driver(name)
-
-
-# OH GOD I DON'T EVEN
-from libcloud.storage.drivers.s3 import S3StorageDriver
-old_upload_object = S3StorageDriver._upload_object
-
-
-def _upload_object(*args, **kwargs):
-    # Rewrite to the correct header
-    if kwargs.get('headers', {}).get('x-amz-meta-acl'):
-        kwargs['headers']['x-amz-acl'] = kwargs['headers'].pop('x-amz-meta-acl')
-    return old_upload_object(*args, **kwargs)
-S3StorageDriver._upload_object = _upload_object

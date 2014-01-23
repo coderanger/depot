@@ -203,14 +203,7 @@ class AptRepository(object):
         if sources_path in self.storage:
             return
         sources_content = ''
-        # https://issues.apache.org/jira/browse/LIBCLOUD-490 ಠ_ಠ ಠ_ಠ
-        try:
-            from libcloud.storage.drivers.s3 import S3StorageDriver
-            old_supports_s3_multipart_upload = S3StorageDriver.supports_s3_multipart_upload
-            S3StorageDriver.supports_s3_multipart_upload = False
-            self.storage.upload(sources_path, sources_content)
-        finally:
-            S3StorageDriver.supports_s3_multipart_upload = old_supports_s3_multipart_upload
+        self.storage.upload(sources_path, sources_content)
         self.storage.upload(sources_path+'.gz', gzip_compress(sources_content))
         self.storage.upload(sources_path+'.bz2', bz2.compress(sources_content))
         if lzma:
