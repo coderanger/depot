@@ -53,13 +53,8 @@ class AptPackage(AptMeta):
 
     @property
     def pool_path(self):
-        if not hasattr(self, '_pool_path'):
-            filename = self.name or self['Filename']
-            first_letter = self['Package'][0]
-            if self['Package'].startswith('lib'):
-                first_letter = 'lib' + first_letter
-            self._pool_path = 'pool/main/{0}/{1}/{2}'.format(first_letter, self['Package'], os.path.basename(filename))
-        return self._pool_path
+        filename = self.name or self['Filename']
+        return 'pool/{0}'.format(os.path.basename(filename))
 
 
 class AptPackages(object):
