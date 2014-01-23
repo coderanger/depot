@@ -2,6 +2,7 @@
 import bz2
 import collections
 import os
+import re
 import tarfile
 import time
 
@@ -142,13 +143,15 @@ class AptRelease(AptMeta):
 
 
 class AptRepository(object):
+    COPY_SPEC_RE = re.compile(r'^([\w_-]+)@(.+?)(?:,(.+?))$')
+
     def __init__(self, storage, gpg, codename, component='main', architecture=None):
         self.storage = storage
         self.gpg = gpg
         self.codename = codename
         self.component = component
         self.architecture = architecture
-        self.dirty_packages = {}  # arch: [pkg, pkg]
+        self.dirty_packages = {}  # arch: [pkg,+]
         self.dirty_sources = False
 
     def add_package(self, path, fileobj=None, force=False):
@@ -170,6 +173,16 @@ class AptRepository(object):
         fileobj.seek(0, 0)
         self.storage.upload(pkg.pool_path, fileobj)
         self.dirty_packages.setdefault(arch, []).append(pkg)
+        return True
+
+    def copy_package(self, package):
+        md = self.COPY_SPEC_RE.match(package)
+        if not md:
+            raise ValueError('Unable to parse {0)'.format(repr(package)))
+        package_name = md.group(1)
+        package_version = md.group(2)
+        package_component = md.group(3)
+        raise NotImplementedError('TODO finish this')
 
     def commit_package_metadata(self, arch, pkgs):
         # Update the Packages file
