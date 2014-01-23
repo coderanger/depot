@@ -4,11 +4,18 @@ import hashlib
 import pytest
 from pretend import call_recorder, call, stub
 
-from depot.apt import AptPackages, AptRelease
+from depot.apt import AptPackages, AptRelease, AptRepository
+
+def fixture_path(*path):
+    return os.path.join(os.path.dirname(__file__), 'data', *path)
 
 @pytest.fixture
 def storage():
-    return stub(hashes=call_recorder(lambda path: {'size': stub(size=1), 'sha1': hashlib.sha1(), 'sha256': hashlib.sha256(), 'md5': hashlib.md5()}))
+    return stub(
+        hashes=call_recorder(lambda path: {'size': stub(size=1), 'sha1': hashlib.sha1(), 'sha256': hashlib.sha256(), 'md5': hashlib.md5()}),
+        __contains__=lambda key: False,
+        upload=lambda path, fileobj: None,
+    )
 
 class TestAptPackages(object):
     @pytest.fixture
@@ -75,3 +82,21 @@ class TestAptRelease(object):
         assert pgdg.hashes['sha1']['main/binary-amd64/Packages'] == ('da39a3ee5e6b4b0d3255bfef95601890afd80709', '1')
         assert pgdg.hashes['sha256']['main/binary-amd64/Packages'] == ('e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '1')
 
+class TestAptRepository(object):
+    @pytest.fixture
+    def package_path(self):
+        return fixture_path('depot_1.2.3-1_amd64.deb')
+
+    def test_duplicate_upload(self, storage, package_path):
+        storage.__contains__ = lambda key: True
+        repo = AptRepository(storage, None, None)
+        assert not repo.add_package(package_path)
+
+    def test_duplicate_upload_force(self, storage, package_path):
+        storage.__contains__ = lambda key: True
+        repo = AptRepository(storage, None, None)
+        assert repo.add_package(package_path, force=True)
+
+    def test_nonduplicate_upload(self, storage, package_path):
+        repo = AptRepository(storage, None, None)
+        assert repo.add_package(package_path, force=True)

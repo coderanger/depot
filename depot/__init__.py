@@ -9,6 +9,7 @@
 -k KEYID --gpg-key=KEYID     GPG key ID to use for signing
 --no-sign                    do not sign this upload
 --no-public                  do not make cloud files public-readable
+--force                      force upload, even if overwriting
 
 Example:
 depot -s s3://apt.example.com -c precise -k 6791B14F mypackage.deb
@@ -36,9 +37,14 @@ def main():
     storage = StorageWrapper(args['--storage'], args['--no-public'])
     repo = AptRepository(storage, gpg, args['--codename'], args['--component'], args['--architecture'])
     for pkg_path in args['<package>']:
-        print('Uploading package {0}'.format(pkg_path))
-        fileobj = StorageWrapper.file(pkg_path)
-        repo.add_package(pkg_path, fileobj)
-        fileobj.close()
+        if '@' in pkg_path:
+            print('Copying package {0}'.format(pkg_path))
+            repo.copy_package(pkg_path)
+        else:
+            print('Uploading package {0}'.format(pkg_path))
+            fileobj = StorageWrapper.file(pkg_path)
+            if not repo.add_package(pkg_path, fileobj, args['--force']):
+                print('{0} already uploaded, skipping (use --force to override)'.format(pkg_path))
+            fileobj.close()
     print('Uploading metadata')
     repo.commit_metadata()
