@@ -179,9 +179,9 @@ class AptRepository(object):
         md = self.COPY_SPEC_RE.match(package)
         if not md:
             raise ValueError('Unable to parse {0)'.format(repr(package)))
-        package_name = md.group(1)
-        package_version = md.group(2)
-        package_component = md.group(3)
+        #package_name = md.group(1)
+        #package_version = md.group(2)
+        #package_component = md.group(3)
         raise NotImplementedError('TODO finish this')
 
     def commit_package_metadata(self, arch, pkgs):
