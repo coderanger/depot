@@ -164,6 +164,7 @@ class AptRepository(object):
             arch = self.architecture
             if not arch:
                 raise ValueError('Architechture required when adding packages for "any"')
+        self.dirty_packages.setdefault(arch, []).append(pkg)
 
         # Check that the package doesn't already exist
         if not force and pkg.pool_path in self.storage:
@@ -172,7 +173,6 @@ class AptRepository(object):
         # Stream up the actual package file
         fileobj.seek(0, 0)
         self.storage.upload(pkg.pool_path, fileobj)
-        self.dirty_packages.setdefault(arch, []).append(pkg)
         return True
 
     def copy_package(self, package):
