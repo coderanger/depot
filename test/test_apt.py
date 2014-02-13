@@ -6,8 +6,10 @@ from pretend import call_recorder, call, stub
 
 from depot.apt import AptPackages, AptRelease, AptRepository
 
+
 def fixture_path(*path):
     return os.path.join(os.path.dirname(__file__), 'data', *path)
+
 
 @pytest.fixture
 def storage():
@@ -16,6 +18,7 @@ def storage():
         __contains__=lambda key: False,
         upload=lambda path, fileobj: None,
     )
+
 
 class TestAptPackages(object):
     @pytest.fixture
@@ -44,6 +47,11 @@ class TestAptPackages(object):
         assert pgdg.packages[('test', '1')]['Filename'] == 'pool/main/t/test/test.deb'
         assert pgdg.packages[('test', '1')]['Size'] == '1'
         assert pgdg.packages[('test', '1')]['SHA1'] == 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
+
+    def test_deleting(self, pgdg):
+        key = ('libpq5', '8.2.23-1.pgdg12.4+1')
+        pgdg.delete(*key)
+        assert key not in pgdg.packages
 
     def test_serializing(self, pgdg):
         assert str(pgdg).strip() == pgdg._data.strip()
@@ -82,6 +90,7 @@ class TestAptRelease(object):
         assert pgdg.hashes['sha1']['main/binary-amd64/Packages'] == ('da39a3ee5e6b4b0d3255bfef95601890afd80709', '1')
         assert pgdg.hashes['sha256']['main/binary-amd64/Packages'] == ('e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '1')
 
+
 class TestAptRepository(object):
     @pytest.fixture
     def package_path(self):
@@ -100,3 +109,8 @@ class TestAptRepository(object):
     def test_nonduplicate_upload(self, storage, package_path):
         repo = AptRepository(storage, None, None)
         assert repo.add_package(package_path, force=True)
+
+    def test_delete(self, storage, package_path):
+        repo = AptRepository(storage, None, None)
+        repo.delete_package('amd64', 'libecpg-compat2', '8.2.23-1.pgdg12.4+1')
+        assert ('libecpg-compat2', '8.2.23-1.pgdg12.4+1') in repo.deleting_packages['amd64']

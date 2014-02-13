@@ -78,6 +78,12 @@ class AptPackages(object):
         pkg['SHA256'] = hashes['sha256'].hexdigest()
         self.packages[(pkg['Package'], pkg['Version'])] = pkg
 
+    def delete(self, package, version):
+        key = (package, version)
+        if key not in self.packages:
+            raise KeyError('No such package {0}-{1}'.format(*key))
+        del self.packages[key]
+
     def __str__(self, extra_fn=None):
         return '\n\n'.join(str(pkg) for key, pkg in sorted(six.iteritems(self.packages), key=lambda k: k[0]))
 
@@ -153,6 +159,7 @@ class AptRepository(object):
         self.component = component
         self.architecture = architecture
         self.dirty_packages = {}  # arch: [pkg,+]
+        self.deleting_packages = {}  # packages to be deleted
         self.dirty_sources = False
 
     def add_package(self, path, fileobj=None, force=False):
@@ -176,6 +183,10 @@ class AptRepository(object):
         self.dirty_packages.setdefault(arch, []).append(pkg)
         return True
 
+    def delete_package(self, arch, package, version):
+        self.deleting_packages.setdefault(arch, []).append((package, version))
+        # TODO: maybe we should also delete the package file?
+
     def copy_package(self, package):
         md = self.COPY_SPEC_RE.match(package)
         if not md:
@@ -185,12 +196,16 @@ class AptRepository(object):
         #package_component = md.group(3)
         raise NotImplementedError('TODO finish this')
 
-    def commit_package_metadata(self, arch, pkgs):
+    def commit_package_metadata(self, arch, added_pkgs=None, deleted_pkgs=None):
+        added_pkgs = added_pkgs or []
+        deleted_pkgs = deleted_pkgs or []
         # Update the Packages file
         packages_path = 'dists/{0}/{1}/binary-{2}/Packages'.format(self.codename, self.component, arch)
         packages = AptPackages(self.storage, self.storage.download(packages_path, skip_hash=True) or '')
-        for pkg in pkgs:
+        for pkg in added_pkgs:
             packages.add(pkg)
+        for pkg, version in deleted_pkgs:
+            packages.delete(pkg, version)
         packages_raw = str(packages)
         self.storage.upload(packages_path, packages_raw)
         self.storage.upload(packages_path+'.gz', gzip_compress(packages_raw))
@@ -223,7 +238,7 @@ class AptRepository(object):
             release.update_hash(release_packages_path+'.bz2')
             if lzma:
                 release.update_hash(release_packages_path+'.lzma')
-        if self.dirty_sources:
+        if self.dirty_sources or self.deleting_packages:
             release_sources_path = '{0}/source/Sources'.format(self.component)
             release.update_hash(release_sources_path)
             release.update_hash(release_sources_path+'.gz')
@@ -247,6 +262,11 @@ class AptRepository(object):
 
     def commit_metadata(self):
         for arch, packages in six.iteritems(self.dirty_packages):
-            self.commit_package_metadata(arch, packages)
+            self.commit_package_metadata(arch, added_pkgs=packages)
+        for arch, packages in six.iteritems(self.deleting_packages):
+            self.commit_package_metadata(arch, deleted_pkgs=packages)
         self.commit_sources_metadata()
-        self.commit_release_metadata(six.iterkeys(self.dirty_packages))
+        if self.dirty_packages:
+            self.commit_release_metadata(six.iterkeys(self.dirty_packages))
+        if self.deleting_packages:
+            self.commit_release_metadata(six.iterkeys(self.deleting_packages))

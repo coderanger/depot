@@ -10,6 +10,7 @@
 --no-sign                    do not sign this upload
 --no-public                  do not make cloud files public-readable
 --force                      force upload, even if overwriting
+--delete                     delete package
 
 Example:
 depot -s s3://apt.example.com -c precise -k 6791B14F mypackage.deb
@@ -37,7 +38,11 @@ def main():
     storage = StorageWrapper(args['--storage'], args['--no-public'])
     repo = AptRepository(storage, gpg, args['--codename'], args['--component'], args['--architecture'])
     for pkg_path in args['<package>']:
-        if '@' in pkg_path:
+        if args['--delete']:
+            print('Deleting package {0}'.format(pkg_path))
+            pkg, version = pkg_path.split('@', 1)
+            repo.delete_package(args['--architecture'], pkg, version)
+        elif '@' in pkg_path:
             print('Copying package {0}'.format(pkg_path))
             repo.copy_package(pkg_path)
         else:
