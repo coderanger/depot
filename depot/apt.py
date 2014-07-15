@@ -230,6 +230,7 @@ class AptRepository(object):
             release.update_hash(release_sources_path+'.bz2')
             if lzma:
                 release.update_hash(release_sources_path+'.lzma')
+            self.dirty_sources = False
         # Force the date to regenerate
         release['Date'] = None
         release_raw = str(release)
@@ -250,3 +251,4 @@ class AptRepository(object):
             self.commit_package_metadata(arch, packages)
         self.commit_sources_metadata()
         self.commit_release_metadata(six.iterkeys(self.dirty_packages))
+        self.dirty_packages = {}
