@@ -10,6 +10,7 @@
 --no-sign                    do not sign this upload
 --no-public                  do not make cloud files public-readable
 --force                      force upload, even if overwriting
+--pool-path=PATH             override pool path for the package
 
 Example:
 depot -s s3://apt.example.com -c precise -k 6791B14F mypackage.deb
@@ -18,6 +19,7 @@ depot -s s3://apt.example.com -c precise -k 6791B14F mypackage.deb
 
 from __future__ import print_function
 import os
+import sys
 
 import docopt
 
@@ -29,6 +31,9 @@ from .version import __version_info__, __version__  # noqa
 
 def main():
     args = docopt.docopt(__doc__, version='depot '+__version__)
+    if args.get('--pool-path') and len(args['<package>']) > 1:
+        print('--pool-path can only be specified for a single package', file=sys.stderr)
+        sys.exit(1)
     if not args['--storage']:
         args['--storage'] = os.environ.get('DEPOT_STORAGE', 'local://')
     if args['--no-sign']:
@@ -44,7 +49,7 @@ def main():
         else:
             print('Uploading package {0}'.format(pkg_path))
             fileobj = StorageWrapper.file(pkg_path)
-            if not repo.add_package(pkg_path, fileobj, args['--force']):
+            if not repo.add_package(pkg_path, fileobj, args['--force'], args['--pool-path']):
                 print('{0} already uploaded, skipping (use --force to override)'.format(pkg_path))
             fileobj.close()
     print('Uploading metadata')

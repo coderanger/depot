@@ -40,8 +40,9 @@ class AptMeta(collections.OrderedDict):
 
 
 class AptPackage(AptMeta):
-    def __init__(self, filename, fileobj=None, data=None):
+    def __init__(self, filename, fileobj=None, data=None, pool_path=None):
         self.name = filename
+        self._pool_path = pool_path # Used for manual pool path overrides
         if not data:
             if fileobj:
                 self.ar = arpy.Archive(filename or getattr(fileobj, 'name', None), fileobj)
@@ -54,8 +55,7 @@ class AptPackage(AptMeta):
 
     @property
     def pool_path(self):
-        filename = self.name or self['Filename']
-        return 'pool/{0}'.format(os.path.basename(filename))
+        return self._pool_path or self['Filename'] or 'pool/{}'.format(self.name)
 
 
 class AptPackages(object):
@@ -155,10 +155,10 @@ class AptRepository(object):
         self.dirty_packages = {}  # arch: [pkg,+]
         self.dirty_sources = False
 
-    def add_package(self, path, fileobj=None, force=False):
+    def add_package(self, path, fileobj=None, force=False, pool_path=None):
         fileobj = fileobj or open(path, 'rb')
         path = os.path.basename(path)
-        pkg = AptPackage(path, fileobj)
+        pkg = AptPackage(path, fileobj, pool_path=pool_path)
         # Check that we have an arch if needed
         arch = pkg['Architecture']
         if pkg['Architecture'] == 'any':
