@@ -16,6 +16,7 @@ depot -s s3://apt.example.com -c precise -k 6791B14F mypackage.deb
 
 """
 
+from __future__ import print_function
 import os
 
 import docopt
