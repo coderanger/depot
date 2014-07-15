@@ -5,8 +5,13 @@ import gnupg
 
 
 class GPG(object):
-    def __init__(self, keyid):
-        self.gpg = gnupg.GPG(use_agent=False)
+    def __init__(self, keyid, key=None, home=None):
+        self.gpg = gnupg.GPG(use_agent=False, gnupghome=home)
+        if key:
+            if not home:
+                raise ValueError('Cowardly refusing to import key in to default key store')
+            results = self.gpg.import_keys(key)
+            keyid = results.fingerprints[0]
         self.keyid = keyid
         if not self.keyid:
             # Compat with how Freight does it.
