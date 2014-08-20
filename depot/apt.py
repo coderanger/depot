@@ -109,7 +109,7 @@ class AptRelease(AptMeta):
                 line = line.strip()
                 if not line:
                     continue
-                hash, size, path = line.split(' ', 2)
+                hash, size, path = re.split('\s+', line, 2)
                 hashes[path] = (hash, size)
         return hashes
 

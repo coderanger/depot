@@ -6,8 +6,10 @@ from pretend import call_recorder, call, stub
 
 from depot.apt import AptPackages, AptRelease, AptRepository
 
+
 def fixture_path(*path):
     return os.path.join(os.path.dirname(__file__), 'data', *path)
+
 
 @pytest.fixture
 def storage():
@@ -16,6 +18,7 @@ def storage():
         __contains__=lambda key: False,
         upload=lambda path, fileobj: None,
     )
+
 
 class TestAptPackages(object):
     @pytest.fixture
@@ -55,6 +58,11 @@ class TestAptRelease(object):
         data = open(os.path.join(os.path.dirname(__file__), 'data', 'pgdg_Release'), 'rb').read()
         return AptRelease(storage, 'precise-pgdg', data)
 
+    @pytest.fixture
+    def ubuntu(self, storage):
+        data = open(os.path.join(os.path.dirname(__file__), 'data', 'ubuntu_Release'), 'rb').read()
+        return AptRelease(storage, 'precise-ubuntu', data)
+
     def test_reading(self, pgdg):
         assert pgdg['Architectures'] == 'amd64 i386'
         assert pgdg['Date'] == 'Mon, 30 Dec 2013 17:34:01 UTC'
@@ -81,6 +89,13 @@ class TestAptRelease(object):
         assert pgdg.hashes['md5']['main/binary-amd64/Packages'] == ('d41d8cd98f00b204e9800998ecf8427e', '1')
         assert pgdg.hashes['sha1']['main/binary-amd64/Packages'] == ('da39a3ee5e6b4b0d3255bfef95601890afd80709', '1')
         assert pgdg.hashes['sha256']['main/binary-amd64/Packages'] == ('e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '1')
+
+    def test_parsing_with_spaces(self, ubuntu):
+        filename = 'contrib/binary-i386/Release'
+        assert ubuntu.hashes['md5'][filename] == ('e44bd430ce78ce20b8e2026a1658c2ac', '101')
+        assert ubuntu.hashes['sha1'][filename] == ('30de782563d8b85b86ae411e7cd823694bb8d299', '101')
+        assert ubuntu.hashes['sha256'][filename] == ('4c6a6c4bfc171cceefd8dba3158cdba20ccf0102781756eaee11ceb9101d5364', '101')
+
 
 class TestAptRepository(object):
     @pytest.fixture
